@@ -8,7 +8,7 @@ a.top-navigation__item-link
 2.Перейдіть: https://www.training.by/. З ‘training list’ оберіть локацію ‘Belarus, Minsk’ Знайдіть
 зображення усіх календарів навпроти яких кількість тижнів містить цифру 1.
 
-//div[@class="duration-calendar ng-binding"]/following-sibling::div/div[@class="ng-binding"]//font[contains(text(), "1")]
+//div[@class="ng-binding" and contains(text(),"1")]/../preceding-sibling::div
 
 3.Перейдіть за посиланням: https://www.training.by/#!/News. Знайдіть усі заголовки новин
 
@@ -31,7 +31,7 @@ TASK2
 має бути масив з 7 span елементів які позначені прямокутниками на
 скріншоті).
 
-//span/../following-sibling::td/a[contains(text(),"USA")]
+//a[contains(text(),"USA")]/../preceding-sibling::td[last()]
 
 2.Знайдіть лого Епаму(результатом має бути 1 img). 
 
@@ -42,7 +42,7 @@ td.logo a.image img
 2(результатом має бути масив з 5 span елементів, які позначені
 прямокутниками на скріншоті).
 
-//span[@class="tocnumber" and contains(text(),"2")]
+//span[@class="tocnumber" and contains(text(),"2")]/..
 
 4.Знайдіть список посилань доступних мов для цієї статті (результатом
 має бути масив посилань (<a…>) з 5 елементів). 
