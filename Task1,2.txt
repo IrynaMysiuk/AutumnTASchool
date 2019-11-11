@@ -4,6 +4,7 @@
 посилань (результатом має бути масив посилань(<a…>), розміром 6)
 
 a.top-navigation__item-link
+//a[@class="top-navigation__item-link"]
 
 2.Перейдіть: https://www.training.by/. З ‘training list’ оберіть локацію ‘Belarus, Minsk’ Знайдіть
 зображення усіх календарів навпроти яких кількість тижнів містить цифру 1.
@@ -13,6 +14,7 @@ a.top-navigation__item-link
 3.Перейдіть за посиланням: https://www.training.by/#!/News. Знайдіть усі заголовки новин
 
 div.news-page-item__title a.ng-binding
+//div[@class="news-page-item__title"]/a[@class="ng-binding"]
 
 4.Перейдіть за посиланням: https://www.epam.com/careers/job-listings?recruitingUrl=%2Fcareers%2Fjoblistings%2Fjob&query=Java&country=Ukraine&city=Lviv&sort=relevance.
 Знайдіть усі назви вакансій в яких є слово ‘Automation’.
@@ -53,8 +55,8 @@ a.interlanguage-link-target
 5.Знайдіть усі посилання під заголовком Tools. (Результатом має бути
 масив з 8 посильлань (<a…>))
 
-//div[@id="p-tb"]/div/ul/li/a
-div #p-tb div ul li a
+//div[@id="p-tb"]//a
+div #p-tb a
 
 
 
