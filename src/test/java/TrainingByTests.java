@@ -75,8 +75,6 @@ public class TrainingByTests {
 
     @Test(description = "Verify 'Trainings' search works properly with searching in 'Skills'")
     public void verifyTrainingsSearchWorksProperlyForSkills() {
-
-
         WebElement signInButton = driver.findElement(By.xpath("//p[@class='header-auth__signin']//span"));
         signInButton.click();
         WebElement mailInput = driver.findElement(By.id("signInEmail"));
@@ -85,9 +83,15 @@ public class TrainingByTests {
         passwordInput.sendKeys(CORRECT_PASSWORD);
         WebElement signIn = driver.findElement(By.className("popup-reg-sign-in-form__sign-in"));
         signIn.click();
+
+        WebElement clearSkill = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.cssSelector("span.filter-field__input-item-close-icon.filter-field__input-item-close-icon--common")));
+        clearSkill.click();
+
         WebElement expandSkillsArrow = wait.until(ExpectedConditions
                 .visibilityOfElementLocated(By.className("filter-toggle__arrow-icon")));
         expandSkillsArrow.click();
+
 
         WebElement bySkillsButton = wait.until(ExpectedConditions.visibilityOfElementLocated(
                 By.xpath("//div[@class=\"navigation-item ng-binding\"]")));
@@ -105,14 +109,17 @@ public class TrainingByTests {
                 .findElement(By.xpath("//div[@class='filter-toggle__arrow-icon arrow-icon-rotate']"));
         collapseSkillsArrow.click();
 
+
         List<WebElement> skillsSearchResultsList = driver.
                 findElements(By.xpath("//div[@class='training-list__container training-list__desktop']//a"));
         skillsSearchResultsList.forEach(element -> Assert.assertTrue(element.getText().contains("JAVA"),
                 String.format("Element %s does not contain 'Java' word.", element)));
 
+        clearSkill = driver.findElement(By.cssSelector("span.filter-field__input-item-close-icon.filter-field__input-item-close-icon--common"));
+        clearSkill.click();
 
-        //ADD OTHER STEPS
     }
+
 
     @Test(description = "Verify 'News' Page and Materials section")
     public void verifyNewsPageAndMaterialsSections() throws InterruptedException {
