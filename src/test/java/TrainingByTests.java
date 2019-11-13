@@ -157,7 +157,8 @@ public class TrainingByTests {
 
         WebElement signInModalButton = wait.until(ExpectedConditions
                 .visibilityOfElementLocated(By.cssSelector(".popup-reg-sign-in-form__sign-in")));
-        Assert.assertEquals(signInModalButton.getAttribute("value"), "Sign in", "'Sign in' in modal window is not displayed");
+        Assert.assertEquals(signInModalButton.getAttribute("value"), "Sign in",
+                "'Sign in' in modal window is not displayed");
         WebElement mailInput = driver.findElement(By.id("signInEmail"));
         mailInput.sendKeys(CORRECT_LOGIN);
         WebElement passwordInput = driver.findElement(By.id("signInPassword"));
@@ -166,21 +167,27 @@ public class TrainingByTests {
 
         WebElement userName = driver.findElement(By.xpath("//div[@class=\"user-info__name\"]/parent::a"));
         Assert.assertEquals(userName.getText(), "Iryna Mysiuk", "User Name is not correct");
-        Thread.sleep(10000);
-        driver.findElement(By.xpath("//ul[@class=\"main-nav__list\"]/li/a[contains(text(),\"Training list\")]")).click();
+
+        wait.until(ExpectedConditions
+                .visibilityOfElementLocated(By.xpath("//ul[@class=\"main-nav__list\"]/li/a[contains(text(),\"Training list\")]"))).click();
         WebElement trainingListTitle = wait.until(ExpectedConditions
                 .visibilityOfElementLocated(By.xpath("//div[@class=\"section-ui__title ng-binding\" and contains(text(),\"OUR SKILLS\")]")));
         Assert.assertEquals(trainingListTitle.getText(), "OUR SKILLS", "Training list is incorrect");
 
         driver.findElement(By.xpath("//div[@ng-click=\"openChoose()\"]")).click();
-        List<WebElement> searchForTraining = driver.findElements(By.xpath("//div[@ng-click=\"changeTab('Location')\"]"));
-        searchForTraining.forEach(webElement -> Assert.assertTrue(webElement.isDisplayed(),
-                String.format("Search for training with countries %s is not displayed", webElement.getText())));
-        Thread.sleep(10000);
+        WebElement countries = wait.until(ExpectedConditions
+                .visibilityOfElementLocated(By.className("location__countries")));
+        Assert.assertTrue(countries.isDisplayed(), "Countries is not displayed");
+
 
         driver.findElement(By.xpath("//div[@ng-click=\"activeCountryChoose(locations)\" and contains(text(),\"Ukraine\")]")).click();
-        driver.findElement(By.xpath("//label[@class=\"location__not-active-label ng-binding\" and contains(.,'Lviv')]")).click();
+        wait.until(ExpectedConditions
+                .elementToBeSelected(By.xpath("//li[@class=\"cities ng-scope\"]/label[contains(.,'Lviv')]/input")));
+        driver.findElement(By.xpath("//div[@ng-click=\"openChoose()\"]")).click();
 
+        List<WebElement> searchForTraining = driver.findElements(By.xpath("//div[@class=\"training-list__container training-list__desktop\"]//div[@class=\"training-item__location ng-binding\"]"));
+        searchForTraining.forEach(webElement -> Assert.assertEquals(webElement.getText(), "Lviv, Ukraine",
+                String.format("Search for training with countries %s is not displayed", webElement.getText())));
     }
 
     public void changeLanguage(String language) {
