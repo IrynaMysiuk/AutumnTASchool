@@ -24,7 +24,7 @@ div.news-page-item__title a.ng-binding
 5.Перейдіть за посиланням: https://www.epam.com/about/who-we-are/events . Натисніть “PAST
 EVENTS”. Знайдіть усі кнопки “LEARN MORE” (<a...>) для подій які відбулись в листопаді. 
 
-//a[@class="button-ui bg-color-light-blue"]/../preceding-sibling::time[@class="events-viewer__date" and contains(text(),"NOVEMBER")]
+//time[contains(text(),'NOVEMBER')]/following-sibling::div[@class='events-viewer__button-wrapper']//span[contains (@class, 'button__content') and contains(text(), 'Learn more')] 
 
 TASK2
 
