@@ -1,20 +1,21 @@
+import com.epam.school.autumn.business.LanguageBO;
 import com.epam.school.autumn.business.LoginBO;
-import com.epam.school.autumn.pageobjects.LoginPO;
 import com.epam.school.autumn.pageobjects.LanguagePO;
+import com.epam.school.autumn.pageobjects.LoginPO;
 import com.epam.school.autumn.pageobjects.MenuPO;
 import com.epam.school.autumn.pageobjects.TrainingListPO;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import static com.epam.school.autumn.utils.Constants.*;
+import static com.epam.school.autumn.utils.Constants.CORRECT_LOGIN;
+import static com.epam.school.autumn.utils.Constants.CORRECT_PASSWORD;
 
 public class TrainingByTests extends BaseTest {
 
     @Test(description = "Verify login with appropriate credentials")
     public void verifyLoginWithAppropriateCredentials() {
-        LanguagePO languagePO = new LanguagePO();
-        languagePO.clickOnLanguage();
-        languagePO.chooseEnglish();
+        new LanguageBO()
+                .changeLanguage();
         new LoginBO()
                 .signInButton()
                 .checkSignInValue()
@@ -24,17 +25,13 @@ public class TrainingByTests extends BaseTest {
 
     @Test(description = "Verify login with incorrect credentials")
     public void verifyLoginWithIncorrectCredentials() {
-        LanguagePO languagePO = new LanguagePO();
-        languagePO.clickOnLanguage();
-        languagePO.chooseEnglish();
-        LoginPO loginPO = new LoginPO();
-        loginPO.clickSignIn();
-        Assert.assertTrue(loginPO.isDisplayedModalTitle(), "'Sign in' in modal window is not displayed");
-        loginPO.typeEmail(INCORRECT_LOGIN);
-        loginPO.typePassword(INCORRECT_PASSWORD);
-        loginPO.clickModalSignIn();
-        Assert.assertEquals(loginPO.getErrorMessage(), "Login failed. Please try again.",
-                "Error message is not correct");
+        new LanguageBO()
+                .changeLanguage();
+        new LoginBO()
+                .signInButton()
+                .checkModalTitle()
+                .signInWithIncorrectData()
+                .checkErrorMessage();
     }
 
     @Test(description = "Verify 'Trainings' search works properly with searching in 'Skills'")
