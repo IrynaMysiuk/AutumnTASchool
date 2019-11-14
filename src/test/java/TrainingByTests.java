@@ -1,5 +1,6 @@
 import com.epam.school.autumn.pageobjects.HomePO;
 import com.epam.school.autumn.pageobjects.LanguagePO;
+import com.epam.school.autumn.pageobjects.TrainingListPO;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -50,14 +51,6 @@ public class TrainingByTests extends BaseTest {
 
     @Test(description = "Verify 'Trainings' search works properly with searching in 'Skills'")
     public void verifyTrainingsSearchWorksProperlyForSkills() {
-//        WebElement signInButton = driver.findElement(By.xpath("//p[@class='header-auth__signin']//span"));
-//        signInButton.click();
-//        WebElement mailInput = driver.findElement(By.id("signInEmail"));
-//        mailInput.sendKeys(CORRECT_LOGIN);
-//        WebElement passwordInput = driver.findElement(By.id("signInPassword"));
-//        passwordInput.sendKeys(CORRECT_PASSWORD);
-//        WebElement signIn = driver.findElement(By.className("popup-reg-sign-in-form__sign-in"));
-//        signIn.click();
         LanguagePO languagePO = new LanguagePO();
         languagePO.clickOnLanguage();
         languagePO.chooseEnglish();
@@ -68,41 +61,16 @@ public class TrainingByTests extends BaseTest {
         homePO.typePassword(CORRECT_PASSWORD);
         homePO.clickModalSignIn();
         Assert.assertEquals(homePO.getUserName(), "Iryna Mysiuk", "User Name is not correct");
-
-        WebElement clearSkill = wait.until(ExpectedConditions.visibilityOfElementLocated(
-                By.cssSelector("span.filter-field__input-item-close-icon.filter-field__input-item-close-icon--common")));
-        clearSkill.click();
-
-        WebElement expandSkillsArrow = wait.until(ExpectedConditions
-                .visibilityOfElementLocated(By.className("filter-toggle__arrow-icon")));
-        expandSkillsArrow.click();
-
-
-        WebElement bySkillsButton = wait.until(ExpectedConditions.visibilityOfElementLocated(
-                By.xpath("//div[@class=\"navigation-item ng-binding\"]")));
-        bySkillsButton.click();
-
-        WebElement skillsSearchInput = driver
-                .findElement(By.xpath("//input[@name='training-filter-input']"));
-        skillsSearchInput.sendKeys("Java");
-
-        WebElement javaCheckbox = wait.until(ExpectedConditions.visibilityOfElementLocated(
-                By.xpath("//label[contains(.,'Java')]//span")));
-        javaCheckbox.click();
-
-        WebElement collapseSkillsArrow = driver
-                .findElement(By.xpath("//div[@class='filter-toggle__arrow-icon arrow-icon-rotate']"));
-        collapseSkillsArrow.click();
-
-
-        List<WebElement> skillsSearchResultsList = driver.
-                findElements(By.xpath("//div[@class='training-list__container training-list__desktop']//a"));
-        skillsSearchResultsList.forEach(element -> Assert.assertTrue(element.getText().contains("JAVA"),
-                String.format("Element %s does not contain 'Java' word.", element)));
-
-        clearSkill = driver.findElement(By.cssSelector("span.filter-field__input-item-close-icon.filter-field__input-item-close-icon--common"));
-        clearSkill.click();
-
+        TrainingListPO trainingListPO = new TrainingListPO();
+        trainingListPO.clearSkill();
+        trainingListPO.expandSkillArrow();
+        trainingListPO.chooseSkills();
+        trainingListPO.typeSkills("Java");
+        trainingListPO.chooseSkillItem();
+        trainingListPO.collapseSkillArrow();
+        trainingListPO.collectSearchSkillResults().forEach(skill -> Assert.assertTrue(skill.contains("JAVA"),
+                String.format("Element %s does not contain 'Java' word.", skill)));
+        trainingListPO.clearSkill();
     }
 
 
