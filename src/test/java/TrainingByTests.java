@@ -1,19 +1,16 @@
+import com.epam.school.autumn.pageobjects.HomePO;
 import com.epam.school.autumn.pageobjects.LanguagePO;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
-public class TrainingByTests extends BaseTest{
+public class TrainingByTests extends BaseTest {
     private WebDriver driver;
     private WebDriverWait wait;
     public static final String CORRECT_LOGIN = "iruna.musyk8a@gmail.com";
@@ -27,56 +24,50 @@ public class TrainingByTests extends BaseTest{
         LanguagePO languagePO = new LanguagePO();
         languagePO.clickOnLanguage();
         languagePO.chooseEnglish();
-
-
-        WebElement signInButton = driver.findElement(By.xpath("//p[@class='header-auth__signin']//span"));
-        signInButton.click();
-
-        WebElement signInModalButton = wait.until(ExpectedConditions
-                .visibilityOfElementLocated(By.cssSelector(".popup-reg-sign-in-form__sign-in")));
-        Assert.assertEquals(signInModalButton.getAttribute("value"), "Sign in", "'Sign in' in modal window is not displayed");
-        WebElement mailInput = driver.findElement(By.id("signInEmail"));
-        mailInput.sendKeys(CORRECT_LOGIN);
-        WebElement passwordInput = driver.findElement(By.id("signInPassword"));
-        passwordInput.sendKeys(CORRECT_PASSWORD);
-        signInModalButton.click();
-
-        WebElement userName = driver.findElement(By.xpath("//div[@class=\"user-info__name\"]/parent::a"));
-        Assert.assertEquals(userName.getText(), "Iryna Mysiuk", "User Name is not correct");
+        HomePO homePO = new HomePO();
+        homePO.clickSignIn();
+        Assert.assertEquals(homePO.getSignInValue(), "Sign in", "'Sign in' in modal window is not displayed");
+        homePO.typeEmail(CORRECT_LOGIN);
+        homePO.typePassword(CORRECT_PASSWORD);
+        homePO.clickModalSignIn();
+        Assert.assertEquals(homePO.getUserName(), "Iryna Mysiuk", "User Name is not correct");
     }
 
     @Test(description = "Verify login with incorrect credentials")
     public void verifyLoginWithIncorrectCredentials() {
-        changeLanguage("English");
-
-        WebElement signInButton = driver.findElement(By.xpath("//p[@class='header-auth__signin']//span"));
-        signInButton.click();
-
-        WebElement modalTitle = wait.until(ExpectedConditions
-                .visibilityOfElementLocated(By.
-                        xpath("//div[@class=\"popup-title__logo\"]/following-sibling::div[@ng-switch-when=\"signIn\"]")));
-        Assert.assertTrue(modalTitle.isDisplayed(), "'Sign in' in modal window is not displayed");
-        WebElement mailInput = driver.findElement(By.id("signInEmail"));
-        mailInput.sendKeys(INCORRECT_LOGIN);
-        WebElement passwordInput = driver.findElement(By.id("signInPassword"));
-        passwordInput.sendKeys(INCORRECT_PASSWORD);
-        WebElement signIn = driver.findElement(By.className("popup-reg-sign-in-form__sign-in"));
-        signIn.click();
-        WebElement errorMessage = wait.until(ExpectedConditions
-                .visibilityOfElementLocated(By.xpath("//div[@ng-show=\"authError\"]")));
-        Assert.assertEquals(errorMessage.getText(), "Login failed. Please try again.", "Error message is not correct");
+        LanguagePO languagePO = new LanguagePO();
+        languagePO.clickOnLanguage();
+        languagePO.chooseEnglish();
+        HomePO homePO = new HomePO();
+        homePO.clickSignIn();
+        Assert.assertTrue(homePO.isDisplayedModalTitle(), "'Sign in' in modal window is not displayed");
+        homePO.typeEmail(INCORRECT_LOGIN);
+        homePO.typePassword(INCORRECT_PASSWORD);
+        homePO.clickModalSignIn();
+        Assert.assertEquals(homePO.getErrorMessage(), "Login failed. Please try again.",
+                "Error message is not correct");
     }
 
     @Test(description = "Verify 'Trainings' search works properly with searching in 'Skills'")
     public void verifyTrainingsSearchWorksProperlyForSkills() {
-        WebElement signInButton = driver.findElement(By.xpath("//p[@class='header-auth__signin']//span"));
-        signInButton.click();
-        WebElement mailInput = driver.findElement(By.id("signInEmail"));
-        mailInput.sendKeys(CORRECT_LOGIN);
-        WebElement passwordInput = driver.findElement(By.id("signInPassword"));
-        passwordInput.sendKeys(CORRECT_PASSWORD);
-        WebElement signIn = driver.findElement(By.className("popup-reg-sign-in-form__sign-in"));
-        signIn.click();
+//        WebElement signInButton = driver.findElement(By.xpath("//p[@class='header-auth__signin']//span"));
+//        signInButton.click();
+//        WebElement mailInput = driver.findElement(By.id("signInEmail"));
+//        mailInput.sendKeys(CORRECT_LOGIN);
+//        WebElement passwordInput = driver.findElement(By.id("signInPassword"));
+//        passwordInput.sendKeys(CORRECT_PASSWORD);
+//        WebElement signIn = driver.findElement(By.className("popup-reg-sign-in-form__sign-in"));
+//        signIn.click();
+        LanguagePO languagePO = new LanguagePO();
+        languagePO.clickOnLanguage();
+        languagePO.chooseEnglish();
+        HomePO homePO = new HomePO();
+        homePO.clickSignIn();
+        Assert.assertEquals(homePO.getSignInValue(), "Sign in", "'Sign in' in modal window is not displayed");
+        homePO.typeEmail(CORRECT_LOGIN);
+        homePO.typePassword(CORRECT_PASSWORD);
+        homePO.clickModalSignIn();
+        Assert.assertEquals(homePO.getUserName(), "Iryna Mysiuk", "User Name is not correct");
 
         WebElement clearSkill = wait.until(ExpectedConditions.visibilityOfElementLocated(
                 By.cssSelector("span.filter-field__input-item-close-icon.filter-field__input-item-close-icon--common")));
