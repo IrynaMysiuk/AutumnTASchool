@@ -1,4 +1,5 @@
-import com.epam.school.autumn.pageobjects.HomePO;
+import com.epam.school.autumn.business.LoginBO;
+import com.epam.school.autumn.pageobjects.LoginPO;
 import com.epam.school.autumn.pageobjects.LanguagePO;
 import com.epam.school.autumn.pageobjects.MenuPO;
 import com.epam.school.autumn.pageobjects.TrainingListPO;
@@ -14,13 +15,11 @@ public class TrainingByTests extends BaseTest {
         LanguagePO languagePO = new LanguagePO();
         languagePO.clickOnLanguage();
         languagePO.chooseEnglish();
-        HomePO homePO = new HomePO();
-        homePO.clickSignIn();
-        Assert.assertEquals(homePO.getSignInValue(), "Sign in", "'Sign in' in modal window is not displayed");
-        homePO.typeEmail(CORRECT_LOGIN);
-        homePO.typePassword(CORRECT_PASSWORD);
-        homePO.clickModalSignIn();
-        Assert.assertEquals(homePO.getUserName(), "Iryna Mysiuk", "User Name is not correct");
+        new LoginBO()
+                .signInButton()
+                .checkSignInValue()
+                .signInWithCorrectData()
+                .checkUserName();
     }
 
     @Test(description = "Verify login with incorrect credentials")
@@ -28,13 +27,13 @@ public class TrainingByTests extends BaseTest {
         LanguagePO languagePO = new LanguagePO();
         languagePO.clickOnLanguage();
         languagePO.chooseEnglish();
-        HomePO homePO = new HomePO();
-        homePO.clickSignIn();
-        Assert.assertTrue(homePO.isDisplayedModalTitle(), "'Sign in' in modal window is not displayed");
-        homePO.typeEmail(INCORRECT_LOGIN);
-        homePO.typePassword(INCORRECT_PASSWORD);
-        homePO.clickModalSignIn();
-        Assert.assertEquals(homePO.getErrorMessage(), "Login failed. Please try again.",
+        LoginPO loginPO = new LoginPO();
+        loginPO.clickSignIn();
+        Assert.assertTrue(loginPO.isDisplayedModalTitle(), "'Sign in' in modal window is not displayed");
+        loginPO.typeEmail(INCORRECT_LOGIN);
+        loginPO.typePassword(INCORRECT_PASSWORD);
+        loginPO.clickModalSignIn();
+        Assert.assertEquals(loginPO.getErrorMessage(), "Login failed. Please try again.",
                 "Error message is not correct");
     }
 
@@ -43,13 +42,13 @@ public class TrainingByTests extends BaseTest {
         LanguagePO languagePO = new LanguagePO();
         languagePO.clickOnLanguage();
         languagePO.chooseEnglish();
-        HomePO homePO = new HomePO();
-        homePO.clickSignIn();
-        Assert.assertEquals(homePO.getSignInValue(), "Sign in", "'Sign in' in modal window is not displayed");
-        homePO.typeEmail(CORRECT_LOGIN);
-        homePO.typePassword(CORRECT_PASSWORD);
-        homePO.clickModalSignIn();
-        Assert.assertEquals(homePO.getUserName(), "Iryna Mysiuk", "User Name is not correct");
+        LoginPO loginPO = new LoginPO();
+        loginPO.clickSignIn();
+        Assert.assertEquals(loginPO.getSignInValue(), "Sign in", "'Sign in' in modal window is not displayed");
+        loginPO.typeEmail(CORRECT_LOGIN);
+        loginPO.typePassword(CORRECT_PASSWORD);
+        loginPO.clickModalSignIn();
+        Assert.assertEquals(loginPO.getUserName(), "Iryna Mysiuk", "User Name is not correct");
         TrainingListPO trainingListPO = new TrainingListPO();
         trainingListPO.clearSkill();
         trainingListPO.expandTrainingArrow();
@@ -68,13 +67,13 @@ public class TrainingByTests extends BaseTest {
         LanguagePO languagePO = new LanguagePO();
         languagePO.clickOnLanguage();
         languagePO.chooseEnglish();
-        HomePO homePO = new HomePO();
-        homePO.clickSignIn();
-        Assert.assertEquals(homePO.getSignInValue(), "Sign in", "'Sign in' in modal window is not displayed");
-        homePO.typeEmail(CORRECT_LOGIN);
-        homePO.typePassword(CORRECT_PASSWORD);
-        homePO.clickModalSignIn();
-        Assert.assertEquals(homePO.getUserName(), "Iryna Mysiuk", "User Name is not correct");
+        LoginPO loginPO = new LoginPO();
+        loginPO.clickSignIn();
+        Assert.assertEquals(loginPO.getSignInValue(), "Sign in", "'Sign in' in modal window is not displayed");
+        loginPO.typeEmail(CORRECT_LOGIN);
+        loginPO.typePassword(CORRECT_PASSWORD);
+        loginPO.clickModalSignIn();
+        Assert.assertEquals(loginPO.getUserName(), "Iryna Mysiuk", "User Name is not correct");
         MenuPO menuPo = new MenuPO();
         menuPo.clickMenu();
         Assert.assertEquals(menuPo.getNewsTitle(), "NEWS", "News title is incorrect");
@@ -90,13 +89,13 @@ public class TrainingByTests extends BaseTest {
         LanguagePO languagePO = new LanguagePO();
         languagePO.clickOnLanguage();
         languagePO.chooseEnglish();
-        HomePO homePO = new HomePO();
-        homePO.clickSignIn();
-        Assert.assertEquals(homePO.getSignInValue(), "Sign in", "'Sign in' in modal window is not displayed");
-        homePO.typeEmail(CORRECT_LOGIN);
-        homePO.typePassword(CORRECT_PASSWORD);
-        homePO.clickModalSignIn();
-        Assert.assertEquals(homePO.getUserName(), "Iryna Mysiuk", "User Name is not correct");
+        LoginPO loginPO = new LoginPO();
+        loginPO.clickSignIn();
+        Assert.assertEquals(loginPO.getSignInValue(), "Sign in", "'Sign in' in modal window is not displayed");
+        loginPO.typeEmail(CORRECT_LOGIN);
+        loginPO.typePassword(CORRECT_PASSWORD);
+        loginPO.clickModalSignIn();
+        Assert.assertEquals(loginPO.getUserName(), "Iryna Mysiuk", "User Name is not correct");
         TrainingListPO trainingListPO = new TrainingListPO();
         trainingListPO.clickTrainingList();
         Assert.assertEquals(trainingListPO.getOurSkills(), "OUR SKILLS", "Training list is incorrect");
