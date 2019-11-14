@@ -1,3 +1,4 @@
+import com.epam.school.autumn.pageobjects.LanguagePO;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -12,7 +13,7 @@ import org.testng.annotations.Test;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class TrainingByTests {
+public class TrainingByTests extends BaseTest{
     private WebDriver driver;
     private WebDriverWait wait;
     public static final String CORRECT_LOGIN = "iruna.musyk8a@gmail.com";
@@ -20,20 +21,13 @@ public class TrainingByTests {
     public static final String INCORRECT_LOGIN = "aabbccdd@gmail.co";
     public static final String INCORRECT_PASSWORD = "987654321";
 
-    @BeforeMethod
-    public void prepareEnviroment() {
-        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe"); //DOWNLOAD DRIVER !
-        driver = new ChromeDriver();
-        wait = new WebDriverWait(driver, 20);
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.get("https://training.by/#/Home");
-        Assert.assertTrue(driver.getCurrentUrl().contains("https://training.by"), "Website has incorrect url");
-    }
 
     @Test(description = "Verify login with appropriate credentials")
     public void verifyLoginWithAppropriateCredentials() {
-        changeLanguage("English");
+        LanguagePO languagePO = new LanguagePO();
+        languagePO.clickOnLanguage();
+        languagePO.chooseEnglish();
+
 
         WebElement signInButton = driver.findElement(By.xpath("//p[@class='header-auth__signin']//span"));
         signInButton.click();
@@ -52,7 +46,7 @@ public class TrainingByTests {
     }
 
     @Test(description = "Verify login with incorrect credentials")
-    public void verifyLoginWithIncorrectCredentials() throws InterruptedException {
+    public void verifyLoginWithIncorrectCredentials() {
         changeLanguage("English");
 
         WebElement signInButton = driver.findElement(By.xpath("//p[@class='header-auth__signin']//span"));
@@ -205,8 +199,8 @@ public class TrainingByTests {
                 .titleContains("Home"));
     }
 
-    @AfterMethod
-    public void quitBrowser() {
-        driver.quit();
-    }
+//    @AfterMethod
+//    public void quitBrowser() {
+//        driver.quit();
+//    }
 }
