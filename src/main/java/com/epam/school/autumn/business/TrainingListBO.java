@@ -12,22 +12,20 @@ public class TrainingListBO {
         return this;
     }
 
-    public TrainingListBO closeTrainingList(){
+    public TrainingListBO closeTrainingList() {
         trainingListPO.collapseTrainingArrow();
         return this;
     }
 
-    public TrainingListBO checkSelectedTrainingListItem(){
+    public TrainingListBO checkSelectedTrainingListItem() {
         trainingListPO.clickTrainingList();
         Assert.assertEquals(trainingListPO.getOurSkills(), "OUR SKILLS", "Training list is incorrect");
         return this;
     }
-    public TrainingListBO checkLocation(){
+
+    public TrainingListBO checkLocation() {
         trainingListPO.getTrainingLocation().forEach(webElement -> Assert.assertEquals(webElement, "Lviv, Ukraine",
                 String.format("Search for training with countries %s is not displayed", webElement)));
         return this;
     }
-
-
-
 }

@@ -1,5 +1,4 @@
 import com.epam.school.autumn.singleton.DriverManager;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -22,6 +21,6 @@ public class BaseTest {
 
     @AfterMethod
     public void afterMethod() {
-       quitDriver();
+        quitDriver();
     }
 }

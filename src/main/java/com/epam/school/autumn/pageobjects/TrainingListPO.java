@@ -21,8 +21,13 @@ public class TrainingListPO {
             .xpath("//div[@class=\"training-list__container training-list__desktop\"]//div[@class=\"training-item__location ng-binding\"]");
 
     public void clearSkill() {
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         getWait().until(ExpectedConditions
-                .visibilityOfElementLocated(clearSkill)).click();
+                .elementToBeClickable(clearSkill)).click();
     }
 
     public void expandTrainingArrow() {
@@ -48,5 +53,4 @@ public class TrainingListPO {
         return getDriver().findElements(trainingLocation).stream()
                 .map(WebElement::getText).collect(Collectors.toList());
     }
-
 }

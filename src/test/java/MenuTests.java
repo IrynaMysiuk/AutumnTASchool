@@ -1,10 +1,12 @@
 import com.epam.school.autumn.business.LanguageBO;
 import com.epam.school.autumn.business.LoginBO;
+import com.epam.school.autumn.business.SkillBO;
 import com.epam.school.autumn.pageobjects.MenuPO;
+import com.epam.school.autumn.pageobjects.SkillPO;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class MenuTests extends BaseTest{
+public class MenuTests extends BaseTest {
     @Test(description = "Verify 'News' Page and Materials section")
     public void verifyNewsPageAndMaterialsSections() {
         new LanguageBO()
@@ -22,5 +24,6 @@ public class MenuTests extends BaseTest{
         Assert.assertEquals(menuPo.getMaterialsItem(), "MATERIALS", "Materials is not correct");
         menuPo.getMaterialsTitles().forEach(webElement -> Assert.assertFalse(webElement.contains("useful") ||
                 webElement.contains("materials"), String.format("Link %s is not contained \"useful\" or \"materials\" words", webElement)));
+
     }
 }

@@ -9,14 +9,24 @@ public class SkillBO {
     public SkillBO chooseJavaSkill() {
         skillPO.chooseSkills();
         skillPO.typeSkills("Java");
-        skillPO.chooseSkillItem();
+        skillPO.chooseJavaCheckBoxes();
         return this;
     }
 
-    public SkillBO checkFiteredSkills() {
-        skillPO.collectSearchSkillResults().forEach(skill -> Assert.assertTrue(skill.contains("JAVA"),
-                String.format("Element %s does not contain 'Java' word.", skill)));
+    public SkillBO checkFilteredSkills(String expectedSkill) {
+        skillPO.collectSearchSkillResults().forEach(skill -> Assert.assertTrue(skill.contains(expectedSkill.toUpperCase()),
+                String.format("Element %s does not contain '%s' word.", skill,expectedSkill.toUpperCase())));
         return this;
     }
-
+    public SkillBO chooseDataSkill() {
+        skillPO.chooseSkills();
+        skillPO.typeSkills("Data");
+        skillPO.chooseDataCheckBoxes();
+        return this;
+    }
+    public SkillBO choosePascalSkill() {
+        skillPO.chooseSkills();
+        skillPO.typeSkills("Pascal");
+        return this;
+    }
 }

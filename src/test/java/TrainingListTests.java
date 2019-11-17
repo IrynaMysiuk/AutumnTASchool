@@ -16,8 +16,12 @@ public class TrainingListTests extends BaseTest {
         SkillBO skillBO = new SkillBO()
                 .chooseJavaSkill();
         trainingListBO.closeTrainingList();
-        skillBO.checkFiteredSkills();
+        //skillBO.checkFilteredSkills("Java");
+        trainingListBO.openTrainingList();
+        skillBO.chooseDataSkill()
+                .checkFilteredSkills("Data");
     }
+
     @Test(description = "Verify ‘Trainings’ search works properly with searching in ‘Locations’.")
     public void verifyTrainingsSearchWorksProperlyWithSearchingInLocations() {
         new LanguageBO()
