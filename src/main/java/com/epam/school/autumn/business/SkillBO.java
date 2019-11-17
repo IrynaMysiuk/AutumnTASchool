@@ -27,6 +27,8 @@ public class SkillBO {
     public SkillBO choosePascalSkill() {
         skillPO.chooseSkills();
         skillPO.typeSkills("Pascal");
+        skillPO.getPascalCheckBoxes();
+        Assert.assertTrue(skillPO.getPascalCheckBoxes(),"Pascal Item is empty!");
         return this;
     }
 }
