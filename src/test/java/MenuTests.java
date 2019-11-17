@@ -1,8 +1,6 @@
 import com.epam.school.autumn.business.LanguageBO;
 import com.epam.school.autumn.business.LoginBO;
-import com.epam.school.autumn.business.SkillBO;
 import com.epam.school.autumn.pageobjects.MenuPO;
-import com.epam.school.autumn.pageobjects.SkillPO;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

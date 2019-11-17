@@ -56,7 +56,7 @@ public class DriverManager {
     public enum DriverType {
         CHROME,
         FIREFOX,
-        IE;
+        IE
     }
 
     public static void quitDriver() {

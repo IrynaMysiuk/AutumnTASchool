@@ -1,6 +1,5 @@
 package com.epam.school.autumn.pageobjects;
 
-import com.epam.school.autumn.singleton.DriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 

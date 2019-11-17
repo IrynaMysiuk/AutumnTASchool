@@ -15,20 +15,22 @@ public class SkillBO {
 
     public SkillBO checkFilteredSkills(String expectedSkill) {
         skillPO.collectSearchSkillResults().forEach(skill -> Assert.assertTrue(skill.contains(expectedSkill.toUpperCase()),
-                String.format("Element %s does not contain '%s' word.", skill,expectedSkill.toUpperCase())));
+                String.format("Element %s does not contain '%s' word.", skill, expectedSkill.toUpperCase())));
         return this;
     }
+
     public SkillBO chooseDataSkill() {
         skillPO.chooseSkills();
         skillPO.typeSkills("Data");
         skillPO.chooseDataCheckBoxes();
         return this;
     }
+
     public SkillBO choosePascalSkill() {
         skillPO.chooseSkills();
         skillPO.typeSkills("Pascal");
         skillPO.getPascalCheckBoxes();
-        Assert.assertTrue(skillPO.getPascalCheckBoxes(),"Pascal Item is empty!");
+        Assert.assertTrue(skillPO.getPascalCheckBoxes(), "Pascal Item is empty!");
         return this;
     }
 }

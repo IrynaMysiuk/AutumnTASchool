@@ -1,11 +1,7 @@
 package com.epam.school.autumn.pageobjects;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 import static com.epam.school.autumn.singleton.DriverManager.getDriver;
 import static com.epam.school.autumn.singleton.DriverManager.getWait;
@@ -20,9 +16,13 @@ public class LocationPO {
                 .visibilityOfElementLocated(countryList)).isDisplayed();
     }
 
-    public void chooseCountry() { getDriver().findElement(ukraineItem).click(); }
+    public void chooseCountry() {
+        getDriver().findElement(ukraineItem).click();
+    }
 
-    public void chooseCity() { getWait().until(ExpectedConditions.elementToBeClickable(lvivItem)).click(); }
+    public void chooseCity() {
+        getWait().until(ExpectedConditions.elementToBeClickable(lvivItem)).click();
+    }
 
 
 }
