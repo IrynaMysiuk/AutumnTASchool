@@ -29,7 +29,7 @@ public class MenuPO {
     }
 
     public List<Boolean> isDisplayedNewsArticles() {
-        new FluentWait<>(getDriver()).withTimeout(Duration.ofSeconds(100)).pollingEvery(Duration.ofSeconds(25));
+        new FluentWait<>(getDriver()).withTimeout(Duration.ofSeconds(200)).pollingEvery(Duration.ofSeconds(25));
         return getDriver().findElements(newsArticles).stream()
                 .map(WebElement::isDisplayed).collect(Collectors.toList());
     }

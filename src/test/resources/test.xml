@@ -1,0 +1,31 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="TrainingBy Suite" parallel="false">
+    <listeners>
+        <listener class-name="ListenerTest"/>
+    </listeners>
+    <test name="About Tests">
+        <classes>
+            <class name="AboutTests"/>
+        </classes>
+    </test>
+    <test name="FAQ Tests">
+        <classes>
+            <class name="FAQTests"/>
+        </classes>
+    </test>
+    <test name="Login Tests">
+        <classes>
+            <class name="LoginTests"/>
+        </classes>
+    </test>
+    <test name="Menu Tests">
+        <classes>
+            <class name="MenuTests"/>
+        </classes>
+    </test>
+    <test name="TrainingList Tests">
+        <classes>
+            <class name="TrainingListTests"/>
+        </classes>
+    </test>
+</suite>

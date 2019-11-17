@@ -5,9 +5,9 @@ import com.epam.school.autumn.pageobjects.LanguagePO;
 public class LanguageBO {
     private LanguagePO languagePO = new LanguagePO();
 
-    public LanguageBO changeLanguage() {
+    public LoginBO changeLanguage() {
         languagePO.clickOnLanguage();
         languagePO.chooseEnglish();
-        return this;
+        return new LoginBO();
     }
 }

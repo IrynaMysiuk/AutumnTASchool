@@ -5,17 +5,14 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 
 import static com.epam.school.autumn.singleton.DriverManager.*;
+import static com.epam.school.autumn.utils.Constants.URL;
 
 public class BaseTest {
 
-    @BeforeTest
-    public void beforeTest() {
-        setBrowser(DriverManager.DriverType.CHROME);
-    }
-
     @BeforeMethod
     public void beforeMethod() {
-        getDriver().get("https://training.by/#/Home");
+        setBrowser(DriverManager.DriverType.CHROME);
+        getDriver().get(URL);
         Assert.assertTrue(getDriver().getCurrentUrl().contains("https://training.by"), "Website has incorrect url");
     }
 

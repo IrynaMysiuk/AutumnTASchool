@@ -1,12 +1,14 @@
-import com.epam.school.autumn.business.*;
+import com.epam.school.autumn.business.LanguageBO;
+import com.epam.school.autumn.business.LocationBO;
+import com.epam.school.autumn.business.SkillBO;
+import com.epam.school.autumn.business.TrainingListBO;
 import org.testng.annotations.Test;
 
 public class TrainingListTests extends BaseTest {
     @Test(description = "Verify 'Trainings' search works properly with searching in 'Skills'")
     public void verifyTrainingsSearchWorksProperlyForSkills() {
         new LanguageBO()
-                .changeLanguage();
-        new LoginBO()
+                .changeLanguage()
                 .signInButton()
                 .checkSignInValue()
                 .signInWithCorrectData()
@@ -21,15 +23,12 @@ public class TrainingListTests extends BaseTest {
         skillBO.chooseDataSkill()
                 .checkFilteredSkills("Data")
                 .choosePascalSkill();
-
-
     }
 
     @Test(description = "Verify ‘Trainings’ search works properly with searching in ‘Locations’.")
     public void verifyTrainingsSearchWorksProperlyWithSearchingInLocations() {
         new LanguageBO()
-                .changeLanguage();
-        new LoginBO()
+                .changeLanguage()
                 .signInButton()
                 .checkSignInValue()
                 .signInWithCorrectData()

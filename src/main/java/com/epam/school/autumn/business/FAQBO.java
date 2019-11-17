@@ -11,8 +11,9 @@ public class FAQBO {
         Assert.assertEquals(faqPO.getMainFAQTitle(), "FAQ", "FAQ Page is incorrect");
         return this;
     }
-    public FAQBO checkPopularQuestion(){
-        Assert.assertTrue(!faqPO.getPopularQuestion().isEmpty(),"Popular question is empty");
+
+    public FAQBO checkPopularQuestion() {
+        Assert.assertTrue(!faqPO.getPopularQuestion().isEmpty(), "Popular question is empty");
         return this;
     }
 }

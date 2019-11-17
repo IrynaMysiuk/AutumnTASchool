@@ -3,7 +3,9 @@ package com.epam.school.autumn.pageobjects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
 
+import java.time.Duration;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -21,11 +23,7 @@ public class TrainingListPO {
             .xpath("//div[@class=\"training-list__container training-list__desktop\"]//div[@class=\"training-item__location ng-binding\"]");
 
     public void clearSkill() {
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        new FluentWait<>(getDriver()).withTimeout(Duration.ofSeconds(1000)).pollingEvery(Duration.ofSeconds(25));
         getWait().until(ExpectedConditions
                 .elementToBeClickable(clearSkill)).click();
     }

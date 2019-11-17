@@ -26,11 +26,6 @@ public class DriverManager {
     public static void setBrowser(DriverType browser) {
         if (driver == null) {
             switch (browser) {
-                case CHROME: {
-                    System.setProperty(WEBDRIVER_CHROME_DRIVER, CHROME_DRIVER_PATH);
-                    driver = new ChromeDriver();
-                    break;
-                }
                 case FIREFOX: {
                     System.setProperty(WEBDRIVER_FIREFOX_DRIVER, FIREFOX_DRIVER_PATH);
                     driver = new FirefoxDriver();
@@ -48,8 +43,7 @@ public class DriverManager {
         wait = new WebDriverWait(getDriver(), 20);
     }
 
-
-    public static WebDriver getDriver() {
+    public  static WebDriver getDriver() {
         return driver;
     }
 

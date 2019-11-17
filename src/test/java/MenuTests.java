@@ -1,5 +1,4 @@
 import com.epam.school.autumn.business.LanguageBO;
-import com.epam.school.autumn.business.LoginBO;
 import com.epam.school.autumn.pageobjects.MenuPO;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -8,8 +7,7 @@ public class MenuTests extends BaseTest {
     @Test(description = "Verify 'News' Page and Materials section")
     public void verifyNewsPageAndMaterialsSections() {
         new LanguageBO()
-                .changeLanguage();
-        new LoginBO()
+                .changeLanguage()
                 .signInButton()
                 .checkSignInValue()
                 .signInWithCorrectData()
