@@ -2,15 +2,13 @@ package com.epam.school.autumn.pageobjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 import static com.epam.school.autumn.singleton.DriverManager.getDriver;
-import static com.epam.school.autumn.singleton.DriverManager.getWait;
 
-public class SkillPO {
+public class SkillPO extends AbstractPO {
     private By javaCheckBox = By.xpath("//li[@class=\"cities ng-scope\"]/label[contains(.,'Java')]//span");
     private By dataCheckBox = By.xpath("//li[@class=\"cities ng-scope\"]/label[contains(.,'Data')]//span");
     private By pascalCheckBox = By.xpath("//li[@class=\"cities ng-scope\"]/label[contains(.,'Pascal')]//span");
@@ -19,11 +17,11 @@ public class SkillPO {
     private By skillInput = By.xpath("//input[@name='training-filter-input']");
 
     public void chooseDataCheckBoxes() {
-        getWait().until(ExpectedConditions.visibilityOfElementLocated(dataCheckBox)).click();
+        getWebElementWithWait(WaitCondition.VISIBILITY, dataCheckBox).click();
     }
 
     public void chooseJavaCheckBoxes() {
-        getWait().until(ExpectedConditions.visibilityOfElementLocated(javaCheckBox)).click();
+        getWebElementWithWait(WaitCondition.VISIBILITY, javaCheckBox).click();
     }
 
     public boolean getPascalCheckBoxes() {
@@ -32,16 +30,15 @@ public class SkillPO {
     }
 
     public List<String> collectSearchSkillResults() {
-        return getDriver().findElements(skillItems).stream().map(WebElement::getText).collect(Collectors.toList());
+        return getWebElements(skillItems).stream().map(WebElement::getText).collect(Collectors.toList());
     }
 
     public void chooseSkills() {
-        getWait().until(ExpectedConditions
-                .visibilityOfElementLocated(chooseSkills)).click();
+        getWebElementWithWait(WaitCondition.VISIBILITY, chooseSkills).click();
     }
 
     public void typeSkills(String skill) {
-        getDriver().findElement(skillInput).sendKeys(skill);
+        getWebElementWithWait(WaitCondition.VISIBILITY, skillInput).sendKeys(skill);
     }
 
 }

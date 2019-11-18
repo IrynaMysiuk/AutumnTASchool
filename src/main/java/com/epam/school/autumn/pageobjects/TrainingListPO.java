@@ -2,7 +2,6 @@ package com.epam.school.autumn.pageobjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 
 import java.time.Duration;
@@ -10,9 +9,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import static com.epam.school.autumn.singleton.DriverManager.getDriver;
-import static com.epam.school.autumn.singleton.DriverManager.getWait;
 
-public class TrainingListPO {
+public class TrainingListPO extends AbstractPO {
     private By clearSkill = By
             .cssSelector("span.filter-field__input-item-close-icon.filter-field__input-item-close-icon--common");
     private By trainingArrow = By.className("filter-toggle__arrow-icon");
@@ -24,31 +22,27 @@ public class TrainingListPO {
 
     public void clearSkill() {
         new FluentWait<>(getDriver()).withTimeout(Duration.ofSeconds(1000)).pollingEvery(Duration.ofSeconds(25));
-        getWait().until(ExpectedConditions
-                .elementToBeClickable(clearSkill)).click();
+        getWebElementWithWait(WaitCondition.CLICKABLE, clearSkill).click();
     }
 
     public void expandTrainingArrow() {
-        getWait().until(ExpectedConditions
-                .visibilityOfElementLocated(trainingArrow)).click();
+        getWebElementWithWait(WaitCondition.VISIBILITY, trainingArrow).click();
     }
 
     public void collapseTrainingArrow() {
-        getDriver().findElement(closeSkillList).click();
+        getWebElementWithWait(WaitCondition.VISIBILITY, closeSkillList).click();
     }
 
     public void clickTrainingList() {
-        getWait().until(ExpectedConditions
-                .visibilityOfElementLocated(trainingListItem)).click();
+        getWebElementWithWait(WaitCondition.VISIBILITY, trainingListItem).click();
     }
 
     public String getOurSkills() {
-        return getWait().until(ExpectedConditions
-                .visibilityOfElementLocated(ourSkillsItem)).getText();
+        return getWebElementWithWait(WaitCondition.VISIBILITY, ourSkillsItem).getText();
     }
 
     public List<String> getTrainingLocation() {
-        return getDriver().findElements(trainingLocation).stream()
+        return getWebElements(trainingLocation).stream()
                 .map(WebElement::getText).collect(Collectors.toList());
     }
 }

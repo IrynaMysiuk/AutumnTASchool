@@ -2,7 +2,6 @@ import com.epam.school.autumn.singleton.DriverManager;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
 
 import static com.epam.school.autumn.singleton.DriverManager.*;
 import static com.epam.school.autumn.utils.Constants.URL;

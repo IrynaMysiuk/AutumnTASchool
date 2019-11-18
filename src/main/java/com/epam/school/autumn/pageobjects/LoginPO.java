@@ -1,12 +1,8 @@
 package com.epam.school.autumn.pageobjects;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import static com.epam.school.autumn.singleton.DriverManager.getDriver;
-import static com.epam.school.autumn.singleton.DriverManager.getWait;
-
-public class LoginPO {
+public class LoginPO extends AbstractPO {
     private By signInButton = By.xpath("//p[@class='header-auth__signin']//span");
     private By signInModalButton = By.cssSelector(".popup-reg-sign-in-form__sign-in");
     private By emailInput = By.id("signInEmail");
@@ -16,42 +12,39 @@ public class LoginPO {
     private By errorMessage = By.xpath("//div[@ng-show=\"authError\"]");
 
     public void clickSignIn() {
-        getDriver().findElement(signInButton).click();
+        getWebElementWithWait(WaitCondition.VISIBILITY, signInButton).click();
     }
 
     public void clickSignInWait() {
 
-        getWait().until(ExpectedConditions
-                .visibilityOfElementLocated(signInModalButton));
+        getWebElementWithWait(WaitCondition.VISIBILITY, signInModalButton);
     }
 
     public void clickModalSignIn() {
-        getDriver().findElement(signInModalButton).click();
+        getWebElementWithWait(WaitCondition.VISIBILITY, signInModalButton).click();
     }
 
     public void typeEmail(String email) {
-        getDriver().findElement(emailInput).sendKeys(email);
+        getWebElementWithWait(WaitCondition.VISIBILITY, emailInput).sendKeys(email);
     }
 
     public void typePassword(String password) {
-        getDriver().findElement(typePassword).sendKeys(password);
+        getWebElementWithWait(WaitCondition.VISIBILITY, typePassword).sendKeys(password);
     }
 
     public String getSignInValue() {
-        return getDriver().findElement(signInModalButton).getAttribute("value");
+        return getWebElementWithWait(WaitCondition.VISIBILITY, signInModalButton).getAttribute("value");
     }
 
     public String getUserName() {
-        return getDriver().findElement(userName).getText();
+        return getWebElementWithWait(WaitCondition.VISIBILITY, userName).getText();
     }
 
     public boolean isDisplayedModalTitle() {
-        return getWait().until(ExpectedConditions
-                .visibilityOfElementLocated(modalTitle)).isDisplayed();
+        return getWebElementWithWait(WaitCondition.VISIBILITY, modalTitle).isDisplayed();
     }
 
     public String getErrorMessage() {
-        return getWait().until(ExpectedConditions
-                .visibilityOfElementLocated(errorMessage)).getText();
+        return getWebElementWithWait(WaitCondition.VISIBILITY, errorMessage).getText();
     }
 }

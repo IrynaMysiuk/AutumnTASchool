@@ -1,5 +1,4 @@
 import com.epam.school.autumn.business.LanguageBO;
-import com.epam.school.autumn.business.LoginBO;
 import org.testng.annotations.Test;
 
 public class LoginTests extends BaseTest {
