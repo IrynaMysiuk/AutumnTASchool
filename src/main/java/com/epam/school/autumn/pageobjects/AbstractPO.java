@@ -1,29 +1,25 @@
 package com.epam.school.autumn.pageobjects;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-
-import java.util.List;
 
 import static com.epam.school.autumn.singleton.DriverManager.getDriver;
 import static com.epam.school.autumn.singleton.DriverManager.getWait;
 
 public class AbstractPO {
-    protected WebElement getWebElement(By locator) {
-        return getDriver().findElement(locator);
+
+    protected AbstractPO() {
+        PageFactory.initElements(getDriver(), this);
     }
 
-    protected List<WebElement> getWebElements(By locator) {
-        return getDriver().findElements(locator);
-    }
 
-    protected WebElement getWebElementWithWait(WaitCondition waitCondition, By locator) {
+    protected WebElement getWebElementWithWait(WaitCondition waitCondition, WebElement element) {
         if (waitCondition.equals(WaitCondition.VISIBILITY))
-            return getWait().until(ExpectedConditions.visibilityOfElementLocated(locator));
+            return getWait().until(ExpectedConditions.visibilityOf(element));
         else if (waitCondition.equals(WaitCondition.CLICKABLE))
-            return getWait().until(ExpectedConditions.elementToBeClickable(locator));
-        return getWait().until(ExpectedConditions.visibilityOfElementLocated(locator));
+            return getWait().until(ExpectedConditions.elementToBeClickable(element));
+        return getWait().until(ExpectedConditions.visibilityOf(element));
     }
 
     public enum WaitCondition {

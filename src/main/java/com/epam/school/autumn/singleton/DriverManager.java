@@ -43,7 +43,7 @@ public class DriverManager {
         wait = new WebDriverWait(getDriver(), 20);
     }
 
-    public  static WebDriver getDriver() {
+    public static WebDriver getDriver() {
         return driver;
     }
 

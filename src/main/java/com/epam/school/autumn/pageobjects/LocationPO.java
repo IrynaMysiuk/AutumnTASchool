@@ -1,11 +1,15 @@
 package com.epam.school.autumn.pageobjects;
 
-import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class LocationPO extends AbstractPO {
-    private By countryList = By.className("location__countries");
-    private By ukraineItem = By.xpath("//div[@ng-click=\"activeCountryChoose(locations)\" and contains(text(),\"Ukraine\")]");
-    private By lvivItem = By.xpath("//li[@class=\"cities ng-scope\"]/label[contains(.,'Lviv')]/span");
+    @FindBy(className = "location__countries")
+    private WebElement countryList;
+    @FindBy(xpath = "//div[@ng-click=\"activeCountryChoose(locations)\" and contains(text(),\"Ukraine\")]")
+    private WebElement ukraineItem;
+    @FindBy(xpath = "//li[@class=\"cities ng-scope\"]/label[contains(.,'Lviv')]/span")
+    private WebElement lvivItem;
 
     public boolean isDisplayedCountries() {
         return getWebElementWithWait(WaitCondition.VISIBILITY, countryList).isDisplayed();

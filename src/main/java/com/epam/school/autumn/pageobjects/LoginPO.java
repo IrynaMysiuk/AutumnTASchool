@@ -1,15 +1,23 @@
 package com.epam.school.autumn.pageobjects;
 
-import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class LoginPO extends AbstractPO {
-    private By signInButton = By.xpath("//p[@class='header-auth__signin']//span");
-    private By signInModalButton = By.cssSelector(".popup-reg-sign-in-form__sign-in");
-    private By emailInput = By.id("signInEmail");
-    private By typePassword = By.id("signInPassword");
-    private By userName = By.xpath("//div[@class=\"user-info__name\"]/parent::a");
-    private By modalTitle = By.xpath("//div[@class=\"popup-title__logo\"]/following-sibling::div[@ng-switch-when=\"signIn\"]");
-    private By errorMessage = By.xpath("//div[@ng-show=\"authError\"]");
+    @FindBy(xpath = "//p[@class='header-auth__signin']//span")
+    private WebElement signInButton;
+    @FindBy(css = ".popup-reg-sign-in-form__sign-in")
+    private WebElement signInModalButton;
+    @FindBy(id = "signInEmail")
+    private WebElement emailInput;
+    @FindBy(id = "signInPassword")
+    private WebElement typePassword;
+    @FindBy(xpath = "//div[@class=\"user-info__name\"]/parent::a")
+    private WebElement userName;
+    @FindBy(xpath = "//div[@class=\"popup-title__logo\"]/following-sibling::div[@ng-switch-when=\"signIn\"]")
+    private WebElement modalTitle;
+    @FindBy(xpath = "//div[@ng-show=\"authError\"]")
+    private WebElement errorMessage;
 
     public void clickSignIn() {
         getWebElementWithWait(WaitCondition.VISIBILITY, signInButton).click();
