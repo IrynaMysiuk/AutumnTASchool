@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 
 import static ua.com.epam.config.URI.DELETE_AUTHOR_SINGLE_OBJ;
 import static ua.com.epam.config.URI.GET_ALL_AUTHORS_ARR;
-import static ua.com.epam.utils.JsonKeys.*;
+import static ua.com.epam.utils.JsonKeys.AUTHOR_ID;
 
 public class CleanUpService {
     private static Logger log = Logger.getLogger(CleanUpService.class);

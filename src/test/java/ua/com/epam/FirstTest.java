@@ -10,16 +10,16 @@ public class FirstTest extends BaseTest {
     private double expAuthor;
 
     @Test
-   public void postAuthor() {
-       client.post(POST_AUTHOR_SINGLE_OBJ, expAuthor);
+    public void postAuthor() {
+        client.post(POST_AUTHOR_SINGLE_OBJ, expAuthor);
 
-       int statusCode = client.getResponse().getStatusCode();
-       String body = client.getResponse().getBody();
+        int statusCode = client.getResponse().getStatusCode();
+        String body = client.getResponse().getBody();
 
-       Author actAuthor = g.fromJson(body, Author.class);
+        Author actAuthor = g.fromJson(body, Author.class);
 
-       Assert.assertEquals(statusCode, 201);
-       Assert.assertEquals(expAuthor, actAuthor);
-   }
+        Assert.assertEquals(statusCode, 201);
+        Assert.assertEquals(expAuthor, actAuthor);
+    }
 
 }

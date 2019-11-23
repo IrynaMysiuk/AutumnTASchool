@@ -6,15 +6,19 @@ import ua.com.epam.config.TemplatesURI;
 import ua.com.epam.core.rest.RestClient;
 import ua.com.epam.entity.Response;
 import ua.com.epam.entity.author.Author;
+import ua.com.epam.entity.request.Request;
 import ua.com.epam.utils.helpers.LocalDateAdapter;
 
 import java.time.LocalDate;
+import java.util.Arrays;
+import java.util.List;
 
 public class AuthorBO {
     private RestClient client;
     private Gson g;
-    public AuthorBO(){
-        client=new RestClient();
+
+    public AuthorBO() {
+        client = new RestClient();
         g = new GsonBuilder().registerTypeAdapter(LocalDate.class, new LocalDateAdapter()).create();
     }
 
@@ -40,5 +44,10 @@ public class AuthorBO {
     public Author getAuthor(String id) {
         client.get(TemplatesURI.GET_AUTHOR_SINGLE_OBJ.clearUri().setId(id).getURI());
         return g.fromJson(client.getResponse().getBody(), Author.class);
+    }
+
+    public List<Author> getAuthors(Request request) {
+        client.get(request.toString());
+        return Arrays.asList(g.fromJson(client.getResponse().getBody(), Author[].class));
     }
 }
