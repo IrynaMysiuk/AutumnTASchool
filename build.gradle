@@ -11,6 +11,11 @@ repositories {
     mavenCentral()
     jcenter()
 }
+test {
+    useTestNG() {
+        suites 'src/test/resources/test.xml'
+    }
+}
 
 dependencies {
     compile(group: 'org.uncommons', name: 'reportng', version: '1.1.4')
