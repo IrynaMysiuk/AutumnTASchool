@@ -1,0 +1,1 @@
+{ "authorId": 19990, "authorName": {"first": "string",    "second": "string" },  "nationality": "string", "birth": {   "date": "1973-03-28",    "country": "string",  "city": "string" },  "authorDescription": "string"}

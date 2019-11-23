@@ -6,6 +6,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ua.com.epam.entity.author.Author;
+import ua.com.epam.entity.request.Request;
 
 import java.util.List;
 
@@ -39,9 +40,10 @@ public class CRUDAuthorTest extends BaseTest {
 
     @Test
     public void getDifferentAuthors() {
-        String params = "?orderType=asc&page=1&pagination=true&size=5&sortBy=authorId";
+        //String params = "?orderType=asc&page=1&pagination=true&size=5&sortBy=authorId";
 
-        client.get(GET_ALL_AUTHORS_ARR + params);
+        Request request=new Request().setOrderType("asc").setPage(1).setPagination(true).setSize(5).setSortBy("authorId");
+        client.get(GET_ALL_AUTHORS_ARR + request.toString());
         int statusCode = client.getResponse().getStatusCode();
         String body = client.getResponse().getBody();
 
