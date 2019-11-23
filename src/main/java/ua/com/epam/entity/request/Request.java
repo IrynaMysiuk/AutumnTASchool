@@ -1,8 +1,12 @@
 package ua.com.epam.entity.request;
 
+import ua.com.epam.config.TemplatesURI;
+
 public class Request {
     public static final String DELIMITER = "&";
+    public static final String FIRST_DELIMITER = "?";
     private StringBuilder request;
+    private String templateUri;
 
     public Request() {
         request = new StringBuilder();
@@ -49,8 +53,13 @@ public class Request {
         return this;
     }
 
+    public Request setTemplateURL(TemplatesURI uri) {
+        this.templateUri = uri.getURI().concat(FIRST_DELIMITER);
+        return this;
+    }
+
     @Override
     public String toString() {
-        return request.toString();
+        return templateUri + request.toString();
     }
 }

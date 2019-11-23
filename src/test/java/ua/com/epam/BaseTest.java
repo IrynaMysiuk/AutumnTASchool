@@ -2,6 +2,7 @@ package ua.com.epam;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import ua.com.epam.core.rest.RestClient;
 import ua.com.epam.service.CleanUpService;
@@ -24,5 +25,9 @@ public class BaseTest {
         client = new RestClient();
         testData = new DataFactory();
         clean = new CleanUpService(client);
+    }
+    @AfterMethod
+    public void cleanUp() {
+        clean.authors();
     }
 }

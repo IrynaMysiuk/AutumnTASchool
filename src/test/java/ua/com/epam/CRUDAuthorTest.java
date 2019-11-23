@@ -1,61 +1,81 @@
 package ua.com.epam;
 
-import org.json.JSONArray;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import ua.com.epam.business.AuthorBO;
+import ua.com.epam.entity.Response;
 import ua.com.epam.entity.author.Author;
-import ua.com.epam.entity.request.Request;
+import ua.com.epam.entity.author.nested.Name;
 
 import java.util.List;
 
-import static ua.com.epam.config.URI.GET_ALL_AUTHORS_ARR;
-import static ua.com.epam.config.URI.POST_AUTHOR_SINGLE_OBJ;
+import static org.apache.http.HttpStatus.*;
 
 @Test(description = "")
 public class CRUDAuthorTest extends BaseTest {
     private Author expAuthor = testData.authors().getRandomOne();
     private List<Author> authorList = testData.authors().getDefaultAuthors();
-
-    @BeforeMethod
-    public void sendAuthors() {
-        for(Author a : authorList) {
-            client.post(POST_AUTHOR_SINGLE_OBJ, a);
-        }
-    }
+    private AuthorBO authorBO = new AuthorBO();
 
     @Test(description = "post single Author obj")
     public void postAuthor() {
-        client.post(POST_AUTHOR_SINGLE_OBJ, expAuthor);
+        Response createdAuthor = authorBO.createAuthor(expAuthor);
+        Assert.assertEquals(createdAuthor.getStatusCode(), SC_CREATED,
+                "Incorrect status code for creating author!");
+        Assert.assertEquals(expAuthor, authorBO.getActualAuthor(),
+                "Author is not created for creating author");
 
-        int statusCode = client.getResponse().getStatusCode();
-        String body = client.getResponse().getBody();
-
-        Author actAuthor = g.fromJson(body, Author.class);
-
-        Assert.assertEquals(statusCode, 201);
-        Assert.assertEquals(expAuthor, actAuthor);
+        Author author = authorBO.getAuthor(expAuthor.getAuthorId().toString());
+        Assert.assertEquals(author.getAuthorId(), expAuthor.getAuthorId(),
+                "AuthorId is incorrect for creating author!");
     }
 
-    @Test
-    public void getDifferentAuthors() {
-        //String params = "?orderType=asc&page=1&pagination=true&size=5&sortBy=authorId";
+    @Test(description = "Put single Author obj")
+    public void checkUpdateAuthor() {
+        Response createdAuthor = authorBO.createAuthor(expAuthor);
+        Assert.assertEquals(createdAuthor.getStatusCode(), SC_CREATED,
+                "Incorrect status code for creating author!");
+        Assert.assertEquals(expAuthor, authorBO.getActualAuthor(),
+                "Author is not created for creating author");
 
-        Request request=new Request().setOrderType("asc").setPage(1).setPagination(true).setSize(5).setSortBy("authorId");
-        client.get(GET_ALL_AUTHORS_ARR + request.toString());
-        int statusCode = client.getResponse().getStatusCode();
-        String body = client.getResponse().getBody();
+        expAuthor.setAuthorName(new Name("Ivan", "Franko"));
+        Response updatedAuthor = authorBO.updateAuthor(expAuthor);
+        Assert.assertEquals(updatedAuthor.getStatusCode(), SC_OK,
+                "Incorrect status code for updating author!");
+        Assert.assertEquals(authorBO.getActualAuthor(), expAuthor,
+                "The author is not the same after updating!");
 
-        JSONArray authorsArr = new JSONArray(body);
-        int len = authorsArr.length();
-
-        Assert.assertEquals(statusCode, 200);
-        Assert.assertEquals(len, 5);
+        Author author = authorBO.getAuthor(expAuthor.getAuthorId().toString());
+        Assert.assertEquals(author.getAuthorId(), expAuthor.getAuthorId(),
+                "Author id is incorrect after updating!");
     }
 
-    @AfterMethod
-    public void cleanUp() {
-        clean.authors();
+    @Test(description = "Check delete single author")
+    public void checkDeleteAuthor() {
+        String expAuthorId = expAuthor.getAuthorId().toString();
+        Response createdAuthor = authorBO.createAuthor(expAuthor);
+        Assert.assertEquals(createdAuthor.getStatusCode(), SC_CREATED,
+                "Incorrect status code for creating!");
+        Assert.assertEquals(expAuthor, authorBO.getActualAuthor(),
+                "Author is not created!");
+
+        Author author = authorBO.getAuthor(expAuthorId);
+        Assert.assertEquals(author.getAuthorId(), expAuthor.getAuthorId(),
+                "AuthorId is incorrect for getting!");
+
+        Response deletedAuthor = authorBO.deleteAuthor(expAuthorId);
+        Assert.assertEquals(deletedAuthor.getStatusCode(), SC_NO_CONTENT,
+                "The status code is incorrect after deleting");
+    }
+
+    @Test(description = "check creating several authors")
+    public void checkCreateSeveralAuthors() {
+        for (Author author : authorList) {
+            AuthorBO newAuthorBO=new AuthorBO();
+            Response createdAuthor = newAuthorBO.createAuthor(author);
+            Assert.assertEquals(createdAuthor.getStatusCode(), SC_CREATED, "Incorrect status code!");
+            Author authorResponse = newAuthorBO.getAuthor(author.getAuthorId().toString());
+            Assert.assertEquals(authorResponse.getAuthorId(), author.getAuthorId(), "AuthorId is incorrect!");
+        }
     }
 }
