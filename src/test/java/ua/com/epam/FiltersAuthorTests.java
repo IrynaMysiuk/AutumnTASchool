@@ -1,6 +1,5 @@
 package ua.com.epam;
 
-import org.json.JSONArray;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -17,9 +16,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import static org.apache.http.HttpStatus.SC_CREATED;
-import static org.apache.http.HttpStatus.SC_OK;
 
-public class SearchAuthorsTests extends BaseTest {
+public class FiltersAuthorTests extends BaseTest {
     private AuthorBO authorBO;
 
     @BeforeClass
@@ -35,14 +33,9 @@ public class SearchAuthorsTests extends BaseTest {
     public void checkSizeAuthors() {
         Request request = new Request()
                 .setTemplateURL(TemplatesURI.GET_ALL_AUTHORS_ARR)
-                .setOrderType("asc")
-                .setPagination(true)
                 .setSize(5);
-        client.get(request.toString());
-        Assert.assertEquals(client.getResponse().getStatusCode(), SC_OK, "Status code is incorrect");
-
-        JSONArray authorsArr = new JSONArray(client.getResponse().getBody());
-        Assert.assertEquals(authorsArr.length(), 5, "The size is incorrect");
+        List<Author> authors = authorBO.getAuthors(request);
+        Assert.assertEquals(authors.size(), 5, "The size is incorrect");
     }
 
     @Test(description = "Verify author page")
@@ -77,6 +70,7 @@ public class SearchAuthorsTests extends BaseTest {
         Assert.assertEquals(firstNames, firstNames.stream().sorted().collect(Collectors.toList()),
                 " Author list is not sorted  by first name for asc");
     }
+
     @Test(description = "Verify orderType for author")
     public void checkOrderTypeDesc() {
         Request request = new Request()
@@ -91,6 +85,7 @@ public class SearchAuthorsTests extends BaseTest {
         Assert.assertEquals(firstNames, firstNames.stream().sorted(Comparator.reverseOrder()).collect(Collectors.toList()),
                 " Author list is not sorted  by first name for desc");
     }
+
     // sortBy
     @Test(description = "Verify sortBy for author")
     public void checkSortBy() {
@@ -104,6 +99,17 @@ public class SearchAuthorsTests extends BaseTest {
                 .collect(Collectors.toList());
         Assert.assertEquals(firstNames, firstNames.stream().sorted().collect(Collectors.toList()),
                 " Author list is not sorted by second name");
+    }
+
+    @Test(description = "Verify author pagination='false' ")
+    public void checkPaginationAuthors() {
+        Request request = new Request()
+                .setTemplateURL(TemplatesURI.GET_ALL_AUTHORS_ARR)
+                .setSize(5)
+                .setPagination(false);
+        List<Author> authors = authorBO.getAuthors(request);
+        Assert.assertTrue(authors.size() > 5, "The size is incorrect");
+        Assert.assertEquals(authors.size(), authorList.size(), "The list is not the same");
     }
 
     @AfterClass

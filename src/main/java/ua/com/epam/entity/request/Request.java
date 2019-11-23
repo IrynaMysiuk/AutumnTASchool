@@ -57,6 +57,13 @@ public class Request {
         this.templateUri = uri.getURI().concat(FIRST_DELIMITER);
         return this;
     }
+    public Request setTemplateURL(String uri) {
+        this.templateUri = uri.concat(FIRST_DELIMITER);
+        return this;
+    }
+    public String getTemplateURL() {
+       return templateUri.replace(FIRST_DELIMITER,"");
+    }
 
     @Override
     public String toString() {

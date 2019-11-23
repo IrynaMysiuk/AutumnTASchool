@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import ua.com.epam.config.TemplatesURI;
 import ua.com.epam.core.rest.RestClient;
+import ua.com.epam.entity.Fault;
 import ua.com.epam.entity.Response;
 import ua.com.epam.entity.author.Author;
 import ua.com.epam.entity.request.Request;
@@ -45,9 +46,16 @@ public class AuthorBO {
         client.get(TemplatesURI.GET_AUTHOR_SINGLE_OBJ.clearUri().setId(id).getURI());
         return g.fromJson(client.getResponse().getBody(), Author.class);
     }
+    public Response getResponseAuthor(String id) {
+        client.get(TemplatesURI.GET_AUTHOR_SINGLE_OBJ.clearUri().setId(id).getURI());
+        return client.getResponse();
+    }
 
     public List<Author> getAuthors(Request request) {
         client.get(request.toString());
         return Arrays.asList(g.fromJson(client.getResponse().getBody(), Author[].class));
+    }
+    public Fault getError(Response error){
+        return g.fromJson(error.getBody(), Fault.class);
     }
 }
