@@ -11,11 +11,6 @@ repositories {
     mavenCentral()
     jcenter()
 }
-test {
-    useTestNG() {
-        suites 'src/test/resources/test.xml'
-    }
-}
 
 dependencies {
     compile(group: 'org.uncommons', name: 'reportng', version: '1.1.4')
@@ -32,4 +27,13 @@ dependencies {
     compile group: 'org.apache.commons', name: 'commons-collections4', version: '4.1'
     compile group: 'com.github.javafaker', name: 'javafaker', version: '1.0.0'
     compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.17'
+}
+
+test {
+    useTestNG() {
+        suites 'src/test/resources/test-suites/test.xml'
+        useDefaultListeners = true
+        outputDirectory = file("$projectDir/reports")
+    }
+    reports.html.setDestination(file("$projectDir/GradleReport"))
 }

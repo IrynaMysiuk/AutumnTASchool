@@ -8,6 +8,7 @@ public class Request {
     private StringBuilder request;
     private String templateUri;
 
+
     public Request() {
         request = new StringBuilder();
     }
@@ -57,12 +58,19 @@ public class Request {
         this.templateUri = uri.getURI().concat(FIRST_DELIMITER);
         return this;
     }
+
     public Request setTemplateURL(String uri) {
         this.templateUri = uri.concat(FIRST_DELIMITER);
         return this;
     }
+
     public String getTemplateURL() {
-       return templateUri.replace(FIRST_DELIMITER,"");
+        return templateUri.replace(FIRST_DELIMITER, "");
+    }
+
+    public Request setQuery(String query) {
+        this.request.append("query=").append(query).append(DELIMITER);
+        return this;
     }
 
     @Override

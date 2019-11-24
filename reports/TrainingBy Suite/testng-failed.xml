@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" verbose="0" name="Failed suite [TrainingBy Suite]">
+  <listeners>
+    <listener class-name="ua.com.epam.ListenerTest"/>
+  </listeners>
+  <test thread-count="5" verbose="0" name="CRUD Authors Tests(failed)">
+    <classes>
+      <class name="ua.com.epam.CRUDAuthorTest">
+        <methods>
+          <include name="cleanUp"/>
+          <include name="checkCreateSeveralAuthors"/>
+          <include name="reinitialize"/>
+        </methods>
+      </class> <!-- ua.com.epam.CRUDAuthorTest -->
+    </classes>
+  </test> <!-- CRUD Authors Tests(failed) -->
+  <test thread-count="5" verbose="0" name="Filters Tests(failed)">
+    <classes>
+      <class name="ua.com.epam.FiltersAuthorTests">
+        <methods>
+          <include name="checkPageAuthors"/>
+          <include name="checkPaginationAuthors"/>
+          <include name="checkSortBy"/>
+          <include name="checkOrderTypeAsc"/>
+          <include name="prepareAuthors"/>
+          <include name="cleanUp"/>
+          <include name="reinitialize"/>
+          <include name="checkSizeAuthors"/>
+          <include name="checkOrderTypeDesc"/>
+        </methods>
+      </class> <!-- ua.com.epam.FiltersAuthorTests -->
+    </classes>
+  </test> <!-- Filters Tests(failed) -->
+  <test thread-count="5" verbose="0" name="Negative Tests(failed)">
+    <classes>
+      <class name="ua.com.epam.NegativeCRUDTests">
+        <methods>
+          <include name="checkUnknownAuthors"/>
+          <include name="reinitialize"/>
+        </methods>
+      </class> <!-- ua.com.epam.NegativeCRUDTests -->
+    </classes>
+  </test> <!-- Negative Tests(failed) -->
+</suite> <!-- Failed suite [TrainingBy Suite] -->

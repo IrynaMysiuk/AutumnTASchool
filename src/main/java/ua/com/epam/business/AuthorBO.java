@@ -38,7 +38,7 @@ public class AuthorBO {
     }
 
     public Response deleteAuthor(String id) {
-        client.delete(TemplatesURI.GET_AUTHOR_SINGLE_OBJ.setId(id).getURI());
+        client.delete(TemplatesURI.GET_AUTHOR_SINGLE_OBJ.clearUri().setId(id).getURI());
         return client.getResponse();
     }
 
@@ -58,4 +58,5 @@ public class AuthorBO {
     public Fault getError(Response error){
         return g.fromJson(error.getBody(), Fault.class);
     }
+
 }

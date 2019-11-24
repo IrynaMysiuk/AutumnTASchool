@@ -18,4 +18,9 @@
               <class name="ua.com.epam.NegativeCRUDTests"/>
           </classes>
       </test>
+    <test name="Search Tests">
+        <classes>
+            <class name="ua.com.epam.SearchAuthorTests"/>
+        </classes>
+    </test>
 </suite>

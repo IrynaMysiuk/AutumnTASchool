@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+  <meta charset='utf-8'>
+  <title>TestNG reports</title>
+
+    <link type="text/css" href="testng-reports.css" rel="stylesheet" />
+    <script type="text/javascript" src="jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="testng-reports.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type='text/javascript'>
+      google.load('visualization', '1', {packages:['table']});
+      google.setOnLoadCallback(drawTable);
+      var suiteTableInitFunctions = new Array();
+      var suiteTableData = new Array();
+    </script>
+    <!--
+      <script type="text/javascript" src="jquery-ui/js/jquery-ui-1.8.16.custom.min.js"></script>
+     -->
+  </head>
+
+  <body>
+    <div class="top-banner-root">
+      <span class="top-banner-title-font">Test results</span>
+      <br/>
+      <span class="top-banner-font-1">1 suite, 2 failed tests</span>
+    </div> <!-- top-banner-root -->
+    <div class="navigator-root">
+      <div class="navigator-suite-header">
+        <span>All suites</span>
+        <a href="#" class="collapse-all-link" title="Collapse/expand all the suites">
+          <img class="collapse-all-icon" src="collapseall.gif">
+          </img> <!-- collapse-all-icon -->
+        </a> <!-- collapse-all-link -->
+      </div> <!-- navigator-suite-header -->
+      <div class="suite">
+        <div class="rounded-window">
+          <div class="suite-header light-rounded-window-top">
+            <a href="#" class="navigator-link" panel-name="suite-TrainingBy_Suite">
+              <span class="suite-name border-failed">TrainingBy Suite</span>
+            </a> <!-- navigator-link -->
+          </div> <!-- suite-header light-rounded-window-top -->
+          <div class="navigator-suite-content">
+            <div class="suite-section-title">
+              <span>Info</span>
+            </div> <!-- suite-section-title -->
+            <div class="suite-section-content">
+              <ul>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="test-xml-TrainingBy_Suite">
+                    <span>C:\Users\ASUS\Desktop\TAF-for-Library-API-simple\src\test\resources\test-suites\test.xml</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="testlist-TrainingBy_Suite">
+                    <span class="test-stats">3 tests</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="group-TrainingBy_Suite">
+                    <span>0 groups</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="times-TrainingBy_Suite">
+                    <span>Times</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="reporter-TrainingBy_Suite">
+                    <span>Reporter output</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="ignored-methods-TrainingBy_Suite">
+                    <span>Ignored methods</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="chronological-TrainingBy_Suite">
+                    <span>Chronological view</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+              </ul>
+            </div> <!-- suite-section-content -->
+            <div class="result-section">
+              <div class="suite-section-title">
+                <span>Results</span>
+              </div> <!-- suite-section-title -->
+              <div class="suite-section-content">
+                <ul>
+                  <li>
+                    <span class="method-stats">13 methods, 2 failed,  6 skipped,  5 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-TrainingBy_Suite" class="hide-methods failed suite-TrainingBy_Suite"> (hide)</a> <!-- hide-methods failed suite-TrainingBy_Suite -->
+                      <a href="#" panel-name="suite-TrainingBy_Suite" class="show-methods failed suite-TrainingBy_Suite"> (show)</a> <!-- show-methods failed suite-TrainingBy_Suite -->
+                    </span>
+                    <div class="method-list-content failed suite-TrainingBy_Suite">
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-TrainingBy_Suite" title="ua.com.epam.CRUDAuthorTest" hash-for-method="checkCreateSeveralAuthors">checkCreateSeveralAuthors</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-TrainingBy_Suite" title="ua.com.epam.NegativeCRUDTests" hash-for-method="checkUnknownAuthors">checkUnknownAuthors</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-TrainingBy_Suite -->
+                  </li>
+                  <li>
+                    <span class="method-list-title skipped">Skipped methods</span>
+                    <span class="show-or-hide-methods skipped">
+                      <a href="#" panel-name="suite-TrainingBy_Suite" class="hide-methods skipped suite-TrainingBy_Suite"> (hide)</a> <!-- hide-methods skipped suite-TrainingBy_Suite -->
+                      <a href="#" panel-name="suite-TrainingBy_Suite" class="show-methods skipped suite-TrainingBy_Suite"> (show)</a> <!-- show-methods skipped suite-TrainingBy_Suite -->
+                    </span>
+                    <div class="method-list-content skipped suite-TrainingBy_Suite">
+                      <span>
+                        <img width="3%" src="skipped.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-TrainingBy_Suite" title="ua.com.epam.FiltersAuthorTests" hash-for-method="checkOrderTypeAsc">checkOrderTypeAsc</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="skipped.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-TrainingBy_Suite" title="ua.com.epam.FiltersAuthorTests" hash-for-method="checkOrderTypeDesc">checkOrderTypeDesc</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="skipped.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-TrainingBy_Suite" title="ua.com.epam.FiltersAuthorTests" hash-for-method="checkPageAuthors">checkPageAuthors</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="skipped.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-TrainingBy_Suite" title="ua.com.epam.FiltersAuthorTests" hash-for-method="checkPaginationAuthors">checkPaginationAuthors</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="skipped.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-TrainingBy_Suite" title="ua.com.epam.FiltersAuthorTests" hash-for-method="checkSizeAuthors">checkSizeAuthors</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="skipped.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-TrainingBy_Suite" title="ua.com.epam.FiltersAuthorTests" hash-for-method="checkSortBy">checkSortBy</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content skipped suite-TrainingBy_Suite -->
+                  </li>
+                  <li>
+                    <span class="method-list-title passed">Passed methods</span>
+                    <span class="show-or-hide-methods passed">
+                      <a href="#" panel-name="suite-TrainingBy_Suite" class="hide-methods passed suite-TrainingBy_Suite"> (hide)</a> <!-- hide-methods passed suite-TrainingBy_Suite -->
+                      <a href="#" panel-name="suite-TrainingBy_Suite" class="show-methods passed suite-TrainingBy_Suite"> (show)</a> <!-- show-methods passed suite-TrainingBy_Suite -->
+                    </span>
+                    <div class="method-list-content passed suite-TrainingBy_Suite">
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-TrainingBy_Suite" title="ua.com.epam.CRUDAuthorTest" hash-for-method="checkDeleteAuthor">checkDeleteAuthor</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-TrainingBy_Suite" title="ua.com.epam.NegativeCRUDTests" hash-for-method="checkDuplicatedAuthors">checkDuplicatedAuthors</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-TrainingBy_Suite" title="ua.com.epam.NegativeCRUDTests" hash-for-method="checkIncorrectURL">checkIncorrectURL</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-TrainingBy_Suite" title="ua.com.epam.CRUDAuthorTest" hash-for-method="checkUpdateAuthor">checkUpdateAuthor</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-TrainingBy_Suite" title="ua.com.epam.CRUDAuthorTest" hash-for-method="postAuthor">postAuthor</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content passed suite-TrainingBy_Suite -->
+                  </li>
+                </ul>
+              </div> <!-- suite-section-content -->
+            </div> <!-- result-section -->
+          </div> <!-- navigator-suite-content -->
+        </div> <!-- rounded-window -->
+      </div> <!-- suite -->
+    </div> <!-- navigator-root -->
+    <div class="wrapper">
+      <div class="main-panel-root">
+        <div panel-name="suite-TrainingBy_Suite" class="panel TrainingBy_Suite">
+          <div class="suite-TrainingBy_Suite-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">ua.com.epam.CRUDAuthorTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="checkCreateSeveralAuthors">
+                  </a> <!-- checkCreateSeveralAuthors -->
+                  <span class="method-name">checkCreateSeveralAuthors</span>
+                  <div class="stack-trace">java.lang.NullPointerException
+	at ua.com.epam.CRUDAuthorTest.checkCreateSeveralAuthors(CRUDAuthorTest.java:72)
+	at com.sun.proxy.$Proxy2.stop(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 46 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(check creating several authors)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-TrainingBy_Suite-class-failed -->
+          <div class="suite-TrainingBy_Suite-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">ua.com.epam.NegativeCRUDTests</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="checkUnknownAuthors">
+                  </a> <!-- checkUnknownAuthors -->
+                  <span class="method-name">checkUnknownAuthors</span>
+                  <div class="stack-trace">java.lang.AssertionError: Incorrect status code for creating! expected [201] but found [409]
+	at ua.com.epam.NegativeCRUDTests.checkUnknownAuthors(NegativeCRUDTests.java:39)
+	at com.sun.proxy.$Proxy2.stop(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 51 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(Verify unknown authors)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-TrainingBy_Suite-class-failed -->
+          <div class="suite-TrainingBy_Suite-class-skipped">
+            <div class="main-panel-header rounded-window-top">
+              <img src="skipped.png"/>
+              <span class="class-name">ua.com.epam.FiltersAuthorTests</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="checkOrderTypeAsc">
+                  </a> <!-- checkOrderTypeAsc -->
+                  <span class="method-name">checkOrderTypeAsc</span>
+                  <div class="stack-trace">java.lang.NullPointerException
+	at ua.com.epam.FiltersAuthorTests.prepareAuthors(FiltersAuthorTests.java:25)
+	at com.sun.proxy.$Proxy2.stop(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 47 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(Verify orderType for author)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="checkOrderTypeDesc">
+                  </a> <!-- checkOrderTypeDesc -->
+                  <span class="method-name">checkOrderTypeDesc</span>
+                  <div class="stack-trace">java.lang.NullPointerException
+	at ua.com.epam.FiltersAuthorTests.prepareAuthors(FiltersAuthorTests.java:25)
+	at com.sun.proxy.$Proxy2.stop(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 47 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(Verify orderType for author)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="checkPageAuthors">
+                  </a> <!-- checkPageAuthors -->
+                  <span class="method-name">checkPageAuthors</span>
+                  <div class="stack-trace">java.lang.NullPointerException
+	at ua.com.epam.FiltersAuthorTests.prepareAuthors(FiltersAuthorTests.java:25)
+	at com.sun.proxy.$Proxy2.stop(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 47 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(Verify author page)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="checkPaginationAuthors">
+                  </a> <!-- checkPaginationAuthors -->
+                  <span class="method-name">checkPaginationAuthors</span>
+                  <div class="stack-trace">java.lang.NullPointerException
+	at ua.com.epam.FiltersAuthorTests.prepareAuthors(FiltersAuthorTests.java:25)
+	at com.sun.proxy.$Proxy2.stop(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 47 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(Verify author pagination='false' )                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="checkSizeAuthors">
+                  </a> <!-- checkSizeAuthors -->
+                  <span class="method-name">checkSizeAuthors</span>
+                  <div class="stack-trace">java.lang.NullPointerException
+	at ua.com.epam.FiltersAuthorTests.prepareAuthors(FiltersAuthorTests.java:25)
+	at com.sun.proxy.$Proxy2.stop(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 47 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(Verify author size)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="checkSortBy">
+                  </a> <!-- checkSortBy -->
+                  <span class="method-name">checkSortBy</span>
+                  <div class="stack-trace">java.lang.NullPointerException
+	at ua.com.epam.FiltersAuthorTests.prepareAuthors(FiltersAuthorTests.java:25)
+	at com.sun.proxy.$Proxy2.stop(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 47 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(Verify sortBy for author)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-TrainingBy_Suite-class-skipped -->
+          <div class="suite-TrainingBy_Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">ua.com.epam.CRUDAuthorTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="checkDeleteAuthor">
+                  </a> <!-- checkDeleteAuthor -->
+                  <span class="method-name">checkDeleteAuthor</span>
+                  <em>
+(Check delete single author)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="checkUpdateAuthor">
+                  </a> <!-- checkUpdateAuthor -->
+                  <span class="method-name">checkUpdateAuthor</span>
+                  <em>
+(Put single Author obj)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="postAuthor">
+                  </a> <!-- postAuthor -->
+                  <span class="method-name">postAuthor</span>
+                  <em>
+(post single Author obj)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-TrainingBy_Suite-class-passed -->
+          <div class="suite-TrainingBy_Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">ua.com.epam.NegativeCRUDTests</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="checkDuplicatedAuthors">
+                  </a> <!-- checkDuplicatedAuthors -->
+                  <span class="method-name">checkDuplicatedAuthors</span>
+                  <em>
+(Verify conflict for duplicated authors)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="checkIncorrectURL">
+                  </a> <!-- checkIncorrectURL -->
+                  <span class="method-name">checkIncorrectURL</span>
+                  <em>
+(Verify method not allowed)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-TrainingBy_Suite-class-passed -->
+        </div> <!-- panel TrainingBy_Suite -->
+        <div panel-name="test-xml-TrainingBy_Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">C:\Users\ASUS\Desktop\TAF-for-Library-API-simple\src\test\resources\test-suites\test.xml</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <pre>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
+&lt;suite guice-stage=&quot;DEVELOPMENT&quot; verbose=&quot;0&quot; name=&quot;TrainingBy Suite&quot;&gt;
+  &lt;listeners&gt;
+    &lt;listener class-name=&quot;ua.com.epam.ListenerTest&quot;/&gt;
+  &lt;/listeners&gt;
+  &lt;test thread-count=&quot;5&quot; verbose=&quot;0&quot; name=&quot;CRUD Authors Tests&quot;&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;ua.com.epam.CRUDAuthorTest&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- CRUD Authors Tests --&gt;
+  &lt;test thread-count=&quot;5&quot; verbose=&quot;0&quot; name=&quot;Filters Tests&quot;&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;ua.com.epam.FiltersAuthorTests&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- Filters Tests --&gt;
+  &lt;test thread-count=&quot;5&quot; verbose=&quot;0&quot; name=&quot;Negative Tests&quot;&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;ua.com.epam.NegativeCRUDTests&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- Negative Tests --&gt;
+&lt;/suite&gt; &lt;!-- TrainingBy Suite --&gt;
+            </pre>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="testlist-TrainingBy_Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Tests for TrainingBy Suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <ul>
+              <li>
+                <span class="test-name">CRUD Authors Tests (1 class)</span>
+              </li>
+              <li>
+                <span class="test-name">Filters Tests (1 class)</span>
+              </li>
+              <li>
+                <span class="test-name">Negative Tests (1 class)</span>
+              </li>
+            </ul>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="group-TrainingBy_Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Groups for TrainingBy Suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="times-TrainingBy_Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Times for TrainingBy Suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="times-div">
+              <script type="text/javascript">
+suiteTableInitFunctions.push('tableData_TrainingBy_Suite');
+function tableData_TrainingBy_Suite() {
+var data = new google.visualization.DataTable();
+data.addColumn('number', 'Number');
+data.addColumn('string', 'Method');
+data.addColumn('string', 'Class');
+data.addColumn('number', 'Time (ms)');
+data.addRows(13);
+data.setCell(0, 0, 0)
+data.setCell(0, 1, 'checkDeleteAuthor')
+data.setCell(0, 2, 'ua.com.epam.CRUDAuthorTest')
+data.setCell(0, 3, 312);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'checkUpdateAuthor')
+data.setCell(1, 2, 'ua.com.epam.CRUDAuthorTest')
+data.setCell(1, 3, 268);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'postAuthor')
+data.setCell(2, 2, 'ua.com.epam.CRUDAuthorTest')
+data.setCell(2, 3, 120);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'checkDuplicatedAuthors')
+data.setCell(3, 2, 'ua.com.epam.NegativeCRUDTests')
+data.setCell(3, 3, 56);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'checkIncorrectURL')
+data.setCell(4, 2, 'ua.com.epam.NegativeCRUDTests')
+data.setCell(4, 3, 52);
+data.setCell(5, 0, 5)
+data.setCell(5, 1, 'checkUnknownAuthors')
+data.setCell(5, 2, 'ua.com.epam.NegativeCRUDTests')
+data.setCell(5, 3, 12);
+data.setCell(6, 0, 6)
+data.setCell(6, 1, 'checkCreateSeveralAuthors')
+data.setCell(6, 2, 'ua.com.epam.CRUDAuthorTest')
+data.setCell(6, 3, 0);
+data.setCell(7, 0, 7)
+data.setCell(7, 1, 'checkSizeAuthors')
+data.setCell(7, 2, 'ua.com.epam.FiltersAuthorTests')
+data.setCell(7, 3, 0);
+data.setCell(8, 0, 8)
+data.setCell(8, 1, 'checkSortBy')
+data.setCell(8, 2, 'ua.com.epam.FiltersAuthorTests')
+data.setCell(8, 3, 0);
+data.setCell(9, 0, 9)
+data.setCell(9, 1, 'checkOrderTypeAsc')
+data.setCell(9, 2, 'ua.com.epam.FiltersAuthorTests')
+data.setCell(9, 3, 0);
+data.setCell(10, 0, 10)
+data.setCell(10, 1, 'checkOrderTypeDesc')
+data.setCell(10, 2, 'ua.com.epam.FiltersAuthorTests')
+data.setCell(10, 3, 0);
+data.setCell(11, 0, 11)
+data.setCell(11, 1, 'checkPageAuthors')
+data.setCell(11, 2, 'ua.com.epam.FiltersAuthorTests')
+data.setCell(11, 3, 0);
+data.setCell(12, 0, 12)
+data.setCell(12, 1, 'checkPaginationAuthors')
+data.setCell(12, 2, 'ua.com.epam.FiltersAuthorTests')
+data.setCell(12, 3, 0);
+window.suiteTableData['TrainingBy_Suite']= { tableData: data, tableDiv: 'times-div-TrainingBy_Suite'}
+return data;
+}
+              </script>
+              <span class="suite-total-time">Total running time: 820 ms</span>
+              <div id="times-div-TrainingBy_Suite">
+              </div> <!-- times-div-TrainingBy_Suite -->
+            </div> <!-- times-div -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="reporter-TrainingBy_Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Reporter output for TrainingBy Suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="ignored-methods-TrainingBy_Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">0 ignored methods</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="chronological-TrainingBy_Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Methods in chronological order</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="chronological-class">
+              <div class="chronological-class-name">ua.com.epam.NegativeCRUDTests</div> <!-- chronological-class-name -->
+              <div class="configuration-suite before">
+                <span class="method-name">reinitialize</span>
+                <span class="method-start">0 ms</span>
+              </div> <!-- configuration-suite before -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">ua.com.epam.CRUDAuthorTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">checkCreateSeveralAuthors</span>
+                <span class="method-start">60 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">cleanUp</span>
+                <span class="method-start">72 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">checkDeleteAuthor</span>
+                <span class="method-start">1041 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">cleanUp</span>
+                <span class="method-start">1353 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">checkUpdateAuthor</span>
+                <span class="method-start">1426 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">cleanUp</span>
+                <span class="method-start">1695 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">postAuthor</span>
+                <span class="method-start">1854 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">cleanUp</span>
+                <span class="method-start">1974 ms</span>
+              </div> <!-- configuration-method after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">ua.com.epam.FiltersAuthorTests</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">prepareAuthors</span>
+                <span class="method-start">2255 ms</span>
+              </div> <!-- configuration-class before -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">ua.com.epam.NegativeCRUDTests</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">checkDuplicatedAuthors</span>
+                <span class="method-start">2319 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">checkIncorrectURL</span>
+                <span class="method-start">2375 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">checkUnknownAuthors</span>
+                <span class="method-start">2427 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">ua.com.epam.FiltersAuthorTests</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">checkOrderTypeAsc</span>
+                <span class="method-start">-1574544928138 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">checkOrderTypeDesc</span>
+                <span class="method-start">-1574544928138 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">checkPageAuthors</span>
+                <span class="method-start">-1574544928138 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">checkPaginationAuthors</span>
+                <span class="method-start">-1574544928138 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">checkSizeAuthors</span>
+                <span class="method-start">-1574544928138 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">checkSortBy</span>
+                <span class="method-start">-1574544928138 ms</span>
+              </div> <!-- test-method -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+      </div> <!-- main-panel-root -->
+    </div> <!-- wrapper -->
+  </body>
+</html>
