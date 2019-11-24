@@ -10,7 +10,7 @@ import ua.com.epam.entity.author.nested.Name;
 
 import static org.apache.http.HttpStatus.*;
 
-@Test(description = "")
+
 public class CRUDAuthorTest extends BaseTest {
     private Author expAuthor = testData.authors().getRandomOne();
 
@@ -45,7 +45,7 @@ public class CRUDAuthorTest extends BaseTest {
                 "The author is not the same after updating!");
 
         Author author = authorBO.getAuthor(expAuthor.getAuthorId().toString());
-        Assert.assertEquals(author.getAuthorId(), expAuthor.getAuthorId(),
+        Assert.assertEquals(author.getAuthorName(), expAuthor.getAuthorName(),
                 "Author id is incorrect after updating!");
     }
 

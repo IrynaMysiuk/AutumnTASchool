@@ -3,15 +3,12 @@ package ua.com.epam.service;
 import com.jayway.jsonpath.JsonPath;
 import org.apache.log4j.Logger;
 import org.json.JSONArray;
+import ua.com.epam.config.TemplatesURI;
 import ua.com.epam.core.rest.RestClient;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-
-import static ua.com.epam.config.URI.DELETE_AUTHOR_SINGLE_OBJ;
-import static ua.com.epam.config.URI.GET_ALL_AUTHORS_ARR;
-import static ua.com.epam.utils.JsonKeys.AUTHOR_ID;
 
 public class CleanUpService {
     private static Logger log = Logger.getLogger(CleanUpService.class);
@@ -25,29 +22,29 @@ public class CleanUpService {
     public void authors() {
         log.info("Start to get all authors...");
 
-        client.get(GET_ALL_AUTHORS_ARR);
+        client.get(TemplatesURI.GET_ALL_AUTHORS_ARR.getURI());
 
-        List<Long> authorIds = getObjectIdsToDelete(AUTHOR_ID, client.getResponse().getBody());
+        List<Long> authorIds = getObjectIdsToDelete(client.getResponse().getBody());
         int size = authorIds.size();
 
         if (size != 0) {
             log.info(size + " authors found!");
             log.info("Start to delete authors...");
-            authorIds.forEach(id -> client.delete(String.format(DELETE_AUTHOR_SINGLE_OBJ, id)));
+            authorIds.forEach(id -> client.delete(String.format(TemplatesURI.DELETE_AUTHOR_SINGLE_OBJ.getURI(), id)));
             return;
         }
 
         log.info("Nothing to delete! Author table is empty!");
     }
 
-    private List<Long> getObjectIdsToDelete(String keyName, String json) {
+    private List<Long> getObjectIdsToDelete(String json) {
         JSONArray a = new JSONArray(json);
 
         if (a.length() == 0) return new ArrayList<>();
 
         return a.toList()
                 .stream()
-                .map(o -> Long.valueOf(JsonPath.read(o, "$." + keyName).toString()))
+                .map(o -> Long.valueOf(JsonPath.read(o, "$." + ua.com.epam.utils.JsonKeys.AUTHOR_ID).toString()))
                 .collect(Collectors.toList());
     }
 }

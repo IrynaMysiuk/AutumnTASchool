@@ -64,26 +64,27 @@ public class AuthorFileData implements AuthorData {
      * @return List of Authors objects
      */
     @Override
-    public List<Author> getDefaultAuthors() {
-        log.info("Try to find first 10 authors...\n");
+    public List<Author> getDefaultAuthors(int... count) {
+        int limit = count.length == 0 ? 10 : count[0];
+        log.info(String.format("Try to find first %s authors...\n", limit));
 
         List<Author> authors = new ArrayList<>();
 
-        try (Stream<String> lines = Files.lines(Paths.get(filePath))) {
+        try (Stream<String> lines = Files.lines(Paths.get(filePath)).limit(limit)) {
             authors = lines.map(s -> g.fromJson(s, Author.class)).collect(Collectors.toList());
             if (authors.isEmpty()) {
                 log.error("File by path " + filePath + " is empty!");
                 throw new FileIsEmptyException();
             }
 
-            if (authors.size() < 10) {
+            if (authors.size() < limit) {
                 log.warn("There are only " + authors.size() + " authors found!");
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        authors = sort(authors, AUTHOR_ID, ASCENDING, 10);
+        authors = sort(authors, AUTHOR_ID, ASCENDING, limit);
         log.info(authors.size() + " authors found!");
 
         return authors;
@@ -105,12 +106,11 @@ public class AuthorFileData implements AuthorData {
     @Override
     public List<Author> getSorted(String keyToSortBy, String order, int... count) {
         int limit = count.length == 0 ? 10 : count[0];
-
         log.info("Try to find first " + limit + " authors sorted by '" + keyToSortBy + "' in " + order + " order...");
 
         List<Author> authors = new ArrayList<>();
 
-        try (Stream<String> lines = Files.lines(Paths.get(filePath))) {
+        try (Stream<String> lines = Files.lines(Paths.get(filePath)).limit(limit)) {
             authors = lines.map(s -> g.fromJson(s, Author.class)).collect(Collectors.toList());
 
             if (authors.isEmpty()) {

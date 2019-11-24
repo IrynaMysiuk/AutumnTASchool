@@ -54,9 +54,11 @@ public class AuthorDBData implements AuthorData {
 
     //return 10 AUTHORS sortedBy authorId in ascending order
     @Override
-    public List<Author> getDefaultAuthors() {
-        log.info("Try to find first 10 AUTHORS...");
-        execute(String.format(SELECT_DEFAULTS, dp.dbName(), AUTHOR, AUTHOR_ID));
+    public List<Author> getDefaultAuthors(int... count) {
+        int limit = count.length == 0 ? 10 : count[0];
+        log.info(String.format("Try to find first %s AUTHORS...\n", limit));
+
+        execute(String.format(SELECT_CUSTOMS, dp.dbName(), AUTHOR, AUTHOR_ID, limit));
         List<Author> authors = new ArrayList<>();
         try {
             int i = 0;

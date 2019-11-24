@@ -3,17 +3,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <meta http-equiv="x-ua-compatible" content="IE=edge"/>
-<title>Test results - Class ua.com.epam.NegativeCRUDTests</title>
+<title>Test results - Class ua.com.epam.SearchAuthorTests</title>
 <link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
 <link href="../css/style.css" rel="stylesheet" type="text/css"/>
 <script src="../js/report.js" type="text/javascript"></script>
 </head>
 <body>
 <div id="content">
-<h1>Class ua.com.epam.NegativeCRUDTests</h1>
+<h1>Class ua.com.epam.SearchAuthorTests</h1>
 <div class="breadcrumbs">
 <a href="../index.html">all</a> &gt; 
-<a href="../packages/ua.com.epam.html">ua.com.epam</a> &gt; NegativeCRUDTests</div>
+<a href="../packages/ua.com.epam.html">ua.com.epam</a> &gt; SearchAuthorTests</div>
 <div id="summary">
 <table>
 <tr>
@@ -23,7 +23,7 @@
 <tr>
 <td>
 <div class="infoBox" id="tests">
-<div class="counter">3</div>
+<div class="counter">2</div>
 <p>tests</p>
 </div>
 </td>
@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.073s</div>
+<div class="counter">0.098s</div>
 <p>duration</p>
 </div>
 </td>
@@ -78,18 +78,13 @@
 </tr>
 </thead>
 <tr>
-<td class="success">checkDuplicatedAuthors</td>
-<td class="success">0.025s</td>
+<td class="success">checkCorrectSearch</td>
+<td class="success">0.082s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="success">checkUnExistedAuthors</td>
-<td class="success">0.044s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">checkUnknownURL</td>
-<td class="success">0.004s</td>
+<td class="success">checkIncorrectSearch</td>
+<td class="success">0.016s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -100,15 +95,14 @@
 <pre>[INFO] 20:11:23 AuthorFileData:getDefaultAuthors:69 - Try to find first 10 authors...
 
 [INFO] 20:11:23 AuthorFileData:getDefaultAuthors:88 - 10 authors found!
-[INFO] 20:11:23 ListenerTest:onTestStart:12 - Start test checkDuplicatedAuthors
-[INFO] 20:11:23 RestClient:post:83 - Perform POST request to: http://localhost:8080/api/library/author
-[INFO] 20:11:23 RestClient:post:83 - Perform POST request to: http://localhost:8080/api/library/author
-[INFO] 20:11:23 ListenerTest:onTestStart:12 - Start test checkUnExistedAuthors
-[INFO] 20:11:23 RestClient:post:83 - Perform POST request to: http://localhost:8080/api/library/author
-[INFO] 20:11:23 RestClient:delete:135 - Perform DELETE request to: http://localhost:8080/api/library/author/2996
-[INFO] 20:11:23 RestClient:delete:135 - Perform DELETE request to: http://localhost:8080/api/library/author/2996
-[INFO] 20:11:23 ListenerTest:onTestStart:12 - Start test checkUnknownURL
-[INFO] 20:11:23 RestClient:get:57 - Perform GET request to: http://localhost:8080/api/library/author/
+[INFO] 20:11:23 ListenerTest:onTestStart:12 - Start test checkCorrectSearch
+[INFO] 20:11:23 RestClient:get:57 - Perform GET request to: http://localhost:8080/api/library/authors/search?query=Car&amp;
+[INFO] 20:11:23 RestClient:get:57 - Perform GET request to: http://localhost:8080/api/library/authors/search?query=Ber&amp;
+[INFO] 20:11:23 RestClient:get:57 - Perform GET request to: http://localhost:8080/api/library/authors/search?query=Marce&amp;
+[INFO] 20:11:23 RestClient:get:57 - Perform GET request to: http://localhost:8080/api/library/authors/search?query=Wil&amp;
+[INFO] 20:11:23 RestClient:get:57 - Perform GET request to: http://localhost:8080/api/library/authors/search?query=Rud&amp;
+[INFO] 20:11:23 ListenerTest:onTestStart:12 - Start test checkIncorrectSearch
+[INFO] 20:11:23 RestClient:get:57 - Perform GET request to: http://localhost:8080/api/library/authors/search?query=Aab&amp;
 </pre>
 </span>
 </div>

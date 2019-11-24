@@ -29,7 +29,7 @@
 </td>
 <td>
 <div class="infoBox" id="failures">
-<div class="counter">1</div>
+<div class="counter">0</div>
 <p>failures</p>
 </div>
 </td>
@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.700s</div>
+<div class="counter">0.671s</div>
 <p>duration</p>
 </div>
 </td>
@@ -50,8 +50,8 @@
 </div>
 </td>
 <td>
-<div class="infoBox failures" id="successRate">
-<div class="percent">75%</div>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
 <p>successful</p>
 </div>
 </td>
@@ -61,78 +61,13 @@
 <div id="tabs">
 <ul class="tabLinks">
 <li>
-<a href="#tab0">Failed tests</a>
+<a href="#tab0">Tests</a>
 </li>
 <li>
-<a href="#tab1">Tests</a>
-</li>
-<li>
-<a href="#tab2">Standard output</a>
+<a href="#tab1">Standard output</a>
 </li>
 </ul>
 <div id="tab0" class="tab">
-<h2>Failed tests</h2>
-<div class="test">
-<a name="checkCreateSeveralAuthors"></a>
-<h3 class="failures">checkCreateSeveralAuthors</h3>
-<span class="code">
-<pre>java.lang.NullPointerException
-	at ua.com.epam.CRUDAuthorTest.checkCreateSeveralAuthors(CRUDAuthorTest.java:72)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-	at org.testng.TestRunner.privateRun(TestRunner.java:648)
-	at org.testng.TestRunner.run(TestRunner.java:505)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
-	at org.testng.TestNG.runSuites(TestNG.java:1049)
-	at org.testng.TestNG.run(TestNG.java:1017)
-	at org.gradle.api.internal.tasks.testing.testng.TestNGTestClassProcessor.runTests(TestNGTestClassProcessor.java:139)
-	at org.gradle.api.internal.tasks.testing.testng.TestNGTestClassProcessor.stop(TestNGTestClassProcessor.java:89)
-	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:61)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:35)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
-	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:32)
-	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:93)
-	at com.sun.proxy.$Proxy2.stop(Unknown Source)
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker.stop(TestWorker.java:131)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:35)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
-	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:155)
-	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:137)
-	at org.gradle.internal.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:404)
-	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:63)
-	at org.gradle.internal.concurrent.ManagedExecutorImpl$1.run(ManagedExecutorImpl.java:46)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:55)
-	at java.lang.Thread.run(Thread.java:748)
-</pre>
-</span>
-</div>
-</div>
-<div id="tab1" class="tab">
 <h2>Tests</h2>
 <table>
 <thead>
@@ -143,38 +78,65 @@
 </tr>
 </thead>
 <tr>
-<td class="failures">checkCreateSeveralAuthors</td>
-<td class="failures">0s</td>
-<td class="failures">failed</td>
+<td class="success">checkCreateSeveralAuthors</td>
+<td class="success">0.547s</td>
+<td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">checkDeleteAuthor</td>
-<td class="success">0.312s</td>
+<td class="success">0.051s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">checkUpdateAuthor</td>
-<td class="success">0.268s</td>
+<td class="success">0.045s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">postAuthor</td>
-<td class="success">0.120s</td>
+<td class="success">0.028s</td>
 <td class="success">passed</td>
 </tr>
 </table>
 </div>
-<div id="tab2" class="tab">
+<div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>[INFO] 23:35:29 RestClient:post:83 - Perform POST request to: http://localhost:8080/api/library/author
-[INFO] 23:35:29 RestClient:get:57 - Perform GET request to: http://localhost:8080/api/library/author/4878
-[INFO] 23:35:29 RestClient:delete:135 - Perform DELETE request to: http://localhost:8080/api/library/author/4878
-[INFO] 23:35:29 RestClient:post:83 - Perform POST request to: http://localhost:8080/api/library/author
-[INFO] 23:35:29 RestClient:put:111 - Perform PUT request to: http://localhost:8080/api/library/author/4878
-[INFO] 23:35:29 RestClient:get:57 - Perform GET request to: http://localhost:8080/api/library/author/4878
-[INFO] 23:35:29 RestClient:post:83 - Perform POST request to: http://localhost:8080/api/library/author
-[INFO] 23:35:30 RestClient:get:57 - Perform GET request to: http://localhost:8080/api/library/author/4878
+<pre>[INFO] 20:11:22 AuthorFileData:getDefaultAuthors:69 - Try to find first 10 authors...
+
+[INFO] 20:11:22 AuthorFileData:getDefaultAuthors:88 - 10 authors found!
+[INFO] 20:11:22 ListenerTest:onTestStart:12 - Start test checkCreateSeveralAuthors
+[INFO] 20:11:22 RestClient:post:83 - Perform POST request to: http://localhost:8080/api/library/author
+[INFO] 20:11:22 RestClient:get:57 - Perform GET request to: http://localhost:8080/api/library/author/3
+[INFO] 20:11:22 RestClient:post:83 - Perform POST request to: http://localhost:8080/api/library/author
+[INFO] 20:11:22 RestClient:get:57 - Perform GET request to: http://localhost:8080/api/library/author/481
+[INFO] 20:11:22 RestClient:post:83 - Perform POST request to: http://localhost:8080/api/library/author
+[INFO] 20:11:22 RestClient:get:57 - Perform GET request to: http://localhost:8080/api/library/author/581
+[INFO] 20:11:22 RestClient:post:83 - Perform POST request to: http://localhost:8080/api/library/author
+[INFO] 20:11:22 RestClient:get:57 - Perform GET request to: http://localhost:8080/api/library/author/798
+[INFO] 20:11:22 RestClient:post:83 - Perform POST request to: http://localhost:8080/api/library/author
+[INFO] 20:11:22 RestClient:get:57 - Perform GET request to: http://localhost:8080/api/library/author/1003
+[INFO] 20:11:22 RestClient:post:83 - Perform POST request to: http://localhost:8080/api/library/author
+[INFO] 20:11:22 RestClient:get:57 - Perform GET request to: http://localhost:8080/api/library/author/1050
+[INFO] 20:11:22 RestClient:post:83 - Perform POST request to: http://localhost:8080/api/library/author
+[INFO] 20:11:22 RestClient:get:57 - Perform GET request to: http://localhost:8080/api/library/author/1067
+[INFO] 20:11:22 RestClient:post:83 - Perform POST request to: http://localhost:8080/api/library/author
+[INFO] 20:11:22 RestClient:get:57 - Perform GET request to: http://localhost:8080/api/library/author/1224
+[INFO] 20:11:22 RestClient:post:83 - Perform POST request to: http://localhost:8080/api/library/author
+[INFO] 20:11:22 RestClient:get:57 - Perform GET request to: http://localhost:8080/api/library/author/1347
+[INFO] 20:11:22 RestClient:post:83 - Perform POST request to: http://localhost:8080/api/library/author
+[INFO] 20:11:22 RestClient:get:57 - Perform GET request to: http://localhost:8080/api/library/author/1365
+[INFO] 20:11:22 ListenerTest:onTestStart:12 - Start test checkDeleteAuthor
+[INFO] 20:11:22 RestClient:post:83 - Perform POST request to: http://localhost:8080/api/library/author
+[INFO] 20:11:22 RestClient:get:57 - Perform GET request to: http://localhost:8080/api/library/author/3
+[INFO] 20:11:23 RestClient:delete:135 - Perform DELETE request to: http://localhost:8080/api/library/author/3
+[INFO] 20:11:23 ListenerTest:onTestStart:12 - Start test checkUpdateAuthor
+[INFO] 20:11:23 RestClient:post:83 - Perform POST request to: http://localhost:8080/api/library/author
+[INFO] 20:11:23 RestClient:put:111 - Perform PUT request to: http://localhost:8080/api/library/author/3
+[INFO] 20:11:23 RestClient:get:57 - Perform GET request to: http://localhost:8080/api/library/author/3
+[INFO] 20:11:23 ListenerTest:onTestStart:12 - Start test postAuthor
+[INFO] 20:11:23 RestClient:post:83 - Perform POST request to: http://localhost:8080/api/library/author
+[INFO] 20:11:23 RestClient:get:57 - Perform GET request to: http://localhost:8080/api/library/author/3
 </pre>
 </span>
 </div>
@@ -186,7 +148,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 4.10</a> at 23 лист. 2019 23:35:30</p>
+<a href="http://www.gradle.org">Gradle 4.10</a> at 24 лист. 2019 20:11:24</p>
 </div>
 </div>
 </body>

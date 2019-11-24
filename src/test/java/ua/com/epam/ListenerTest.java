@@ -4,28 +4,27 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 public class ListenerTest implements ITestListener {
+    private static org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger(ListenerTest.class);
+
     @Override
     public void onTestStart(ITestResult iTestResult) {
-
+        log.info("Start test " + iTestResult.getName());
     }
 
     @Override
     public void onTestSuccess(ITestResult iTestResult) {
-
+        log.info("Success test " + iTestResult.getName());
     }
 
     @Override
     public void onTestFailure(ITestResult iTestResult) {
-        Logger.getLogger("").log(Level.WARNING, "The name of the test case failed is " + iTestResult.getName());
+        log.warn("The name of the test case failed " + iTestResult.getName());
     }
 
     @Override
     public void onTestSkipped(ITestResult iTestResult) {
-        Logger.getLogger("").log(Level.SEVERE, "The name of the test case skipped is " + iTestResult.getName());
+        log.warn("The name of the test case skipped " + iTestResult.getName());
     }
 
     @Override
@@ -40,6 +39,6 @@ public class ListenerTest implements ITestListener {
 
     @Override
     public void onFinish(ITestContext iTestContext) {
-
+        log.info("Finish test " + iTestContext.getName());
     }
 }

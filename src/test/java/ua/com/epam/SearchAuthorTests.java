@@ -12,11 +12,12 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static ua.com.epam.utils.helpers.Constants.EXPECTED_QUERIES;
+
 public class SearchAuthorTests extends BaseTest {
     @Test(description = "Verify correct search")
     public void checkCorrectSearch() {
-        List<String>expectedQueries= Arrays.asList("Car","Ber","Marce","Wil","Rud");
-        for(String expQuery :expectedQueries){
+        for(String expQuery :EXPECTED_QUERIES){
         Request request = new Request()
                 .setTemplateURL(TemplatesURI.SEARCH_FOR_EXISTED_AUTHORS_ARR)
                 .setQuery(expQuery);

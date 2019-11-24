@@ -1,6 +1,7 @@
 package ua.com.epam;
 
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import ua.com.epam.business.AuthorBO;
 import ua.com.epam.entity.Fault;
@@ -34,8 +35,7 @@ public class NegativeCRUDTests extends BaseTest {
     }
 
     @Test(description = "Verify unknown authors")
-    public void checkUnknownAuthors() {
-
+    public void checkUnExistedAuthors() {
         Response createdAuthor = authorBO.createAuthor(expAuthor);
         Assert.assertEquals(createdAuthor.getStatusCode(), SC_CREATED,
                 "Incorrect status code for creating!");
@@ -58,7 +58,7 @@ public class NegativeCRUDTests extends BaseTest {
     }
 
     @Test(description = "Verify method not allowed")
-    public void checkIncorrectURL() {
+    public void checkUnknownURL() {
         Request request = new Request().setTemplateURL("/api/library/author/");
 
         Response author = authorBO.getResponseAuthor("");
@@ -67,5 +67,10 @@ public class NegativeCRUDTests extends BaseTest {
         Assert.assertEquals(methodNotAllowed.getErrorMessage(),
                 String.format("Method 'GET' mapped by '%s' not supported!", request.getTemplateURL()),
                 "Message is not correct!");
+    }
+
+    @AfterMethod
+    public void cleanUp() {
+        clean.authors();
     }
 }

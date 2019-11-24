@@ -7,7 +7,7 @@ import java.util.List;
 public interface AuthorData {
     Author getRandomOne();
 
-    List<Author> getDefaultAuthors();
+    List<Author> getDefaultAuthors(int... count);
 
     List<Author> getSorted(String keyToSortBy, String order, int... count);
 }

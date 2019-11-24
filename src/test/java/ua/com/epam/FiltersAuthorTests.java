@@ -10,14 +10,18 @@ import ua.com.epam.entity.Response;
 import ua.com.epam.entity.author.Author;
 import ua.com.epam.entity.author.nested.Name;
 import ua.com.epam.entity.request.Request;
+import ua.com.epam.utils.data.service.AuthorFileData;
 
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import static org.apache.http.HttpStatus.SC_CREATED;
+import static ua.com.epam.utils.JsonKeys.*;
+import static ua.com.epam.utils.helpers.Constants.TEST_EXPECTED_SIZE;
 
 public class FiltersAuthorTests extends BaseTest {
+
     private AuthorBO authorBO;
 
     @BeforeClass
@@ -33,41 +37,45 @@ public class FiltersAuthorTests extends BaseTest {
     public void checkSizeAuthors() {
         Request request = new Request()
                 .setTemplateURL(TemplatesURI.GET_ALL_AUTHORS_ARR)
-                .setSize(5);
+                .setSize(TEST_EXPECTED_SIZE);
         List<Author> authors = authorBO.getAuthors(request);
-        Assert.assertEquals(authors.size(), 5, "The size is incorrect");
+        Assert.assertEquals(authors.size(), TEST_EXPECTED_SIZE, "The size is incorrect");
     }
 
     @Test(description = "Verify author page")
     public void checkPageAuthors() {
-        int expectedSize = 5;
         int authorsSum = 0;
-        for (int page = 1; page <= Math.round(authorList.size() / expectedSize); page++) {
+        for (int page = 1; page <= Math.round(authorList.size() / TEST_EXPECTED_SIZE); page++) {
             Request request = new Request()
                     .setTemplateURL(TemplatesURI.GET_ALL_AUTHORS_ARR)
                     .setPage(page)
-                    .setSize(expectedSize);
+                    .setSize(TEST_EXPECTED_SIZE);
             List<Author> authors = authorBO.getAuthors(request);
 
-            Assert.assertTrue(authors.size() <= expectedSize, "The size is incorrect on page " + page);
+            Assert.assertTrue(authors.size() <= TEST_EXPECTED_SIZE,
+                    "The size is incorrect on page " + page);
             authorsSum += authors.size();
         }
         Assert.assertEquals(authorsSum, authorList.size(), "The sum of authors is not correct");
     }
 
-    //orderType Collections.sort(auhorsList)
     @Test(description = "Verify orderType for author")
     public void checkOrderTypeAsc() {
         Request request = new Request()
                 .setTemplateURL(TemplatesURI.GET_ALL_AUTHORS_ARR)
-                .setSortBy("authorName.first")
-                .setOrderType("asc");
+                .setSortBy(AUTHOR_FIRST_NAME)
+                .setOrderType(ASCENDING);
         List<Author> authors = authorBO.getAuthors(request);
-        List<String> firstNames = authors.stream()
+        List<String> actFirstNames = authors.stream()
                 .map(Author::getAuthorName)
                 .map(Name::getFirst)
                 .collect(Collectors.toList());
-        Assert.assertEquals(firstNames, firstNames.stream().sorted().collect(Collectors.toList()),
+        List<String> expectedFirstNames = new AuthorFileData()
+                .getSorted(AUTHOR_FIRST_NAME, ASCENDING).stream()
+                .map(Author::getAuthorName)
+                .map(Name::getFirst)
+                .collect(Collectors.toList());
+        Assert.assertEquals(actFirstNames, expectedFirstNames,
                 " Author list is not sorted  by first name for asc");
     }
 
@@ -75,29 +83,33 @@ public class FiltersAuthorTests extends BaseTest {
     public void checkOrderTypeDesc() {
         Request request = new Request()
                 .setTemplateURL(TemplatesURI.GET_ALL_AUTHORS_ARR)
-                .setSortBy("authorName.first")
-                .setOrderType("desc");
+                .setSortBy(AUTHOR_FIRST_NAME)
+                .setOrderType(DESCENDING);
         List<Author> authors = authorBO.getAuthors(request);
         List<String> firstNames = authors.stream()
                 .map(Author::getAuthorName)
                 .map(Name::getFirst)
                 .collect(Collectors.toList());
-        Assert.assertEquals(firstNames, firstNames.stream().sorted(Comparator.reverseOrder()).collect(Collectors.toList()),
+        List<String> expectedFirstNames = new AuthorFileData()
+                .getSorted(AUTHOR_FIRST_NAME, DESCENDING).stream()
+                .map(Author::getAuthorName)
+                .map(Name::getFirst)
+                .collect(Collectors.toList());
+        Assert.assertEquals(firstNames, expectedFirstNames,
                 " Author list is not sorted  by first name for desc");
     }
 
-    // sortBy
     @Test(description = "Verify sortBy for author")
     public void checkSortBy() {
         Request request = new Request()
                 .setTemplateURL(TemplatesURI.GET_ALL_AUTHORS_ARR)
                 .setSortBy("authorName.second");
         List<Author> authors = authorBO.getAuthors(request);
-        List<String> firstNames = authors.stream()
+        List<String> secondNames = authors.stream()
                 .map(Author::getAuthorName)
                 .map(Name::getSecond)
                 .collect(Collectors.toList());
-        Assert.assertEquals(firstNames, firstNames.stream().sorted().collect(Collectors.toList()),
+        Assert.assertEquals(secondNames, secondNames.stream().sorted().collect(Collectors.toList()),
                 " Author list is not sorted by second name");
     }
 
