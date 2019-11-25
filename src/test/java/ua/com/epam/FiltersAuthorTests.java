@@ -4,15 +4,13 @@ import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import ua.com.epam.business.AuthorBO;
 import ua.com.epam.config.TemplatesURI;
+import ua.com.epam.core.service.AuthorFileData;
 import ua.com.epam.entity.Response;
 import ua.com.epam.entity.author.Author;
 import ua.com.epam.entity.author.nested.Name;
 import ua.com.epam.entity.request.Request;
-import ua.com.epam.utils.data.service.AuthorFileData;
 
-import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -22,12 +20,9 @@ import static ua.com.epam.utils.helpers.Constants.TEST_EXPECTED_SIZE;
 
 public class FiltersAuthorTests extends BaseTest {
 
-    private AuthorBO authorBO;
-
     @BeforeClass
     public void prepareAuthors() {
         for (Author author : authorList) {
-            authorBO = new AuthorBO();
             Response createdAuthor = authorBO.createAuthor(author);
             Assert.assertEquals(createdAuthor.getStatusCode(), SC_CREATED, "Authors is not add!");
         }

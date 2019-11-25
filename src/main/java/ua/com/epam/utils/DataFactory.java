@@ -1,7 +1,7 @@
 package ua.com.epam.utils;
 
+import ua.com.epam.core.service.AuthorFileData;
 import ua.com.epam.utils.data.AuthorData;
-import ua.com.epam.utils.data.service.AuthorFileData;
 
 public class DataFactory {
 

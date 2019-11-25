@@ -1,23 +1,23 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="TrainingBy Suite" parallel="false">
     <listeners>
-          <listener class-name="ua.com.epam.ListenerTest"/>
-      </listeners>
-      <test name="CRUD Authors Tests">
-          <classes>
-              <class name="ua.com.epam.CRUDAuthorTest"/>
-          </classes>
-      </test>
-      <test name="Filters Tests">
-          <classes>
-              <class name="ua.com.epam.FiltersAuthorTests"/>
-          </classes>
-      </test>
-      <test name="Negative Tests">
-          <classes>
-              <class name="ua.com.epam.NegativeCRUDTests"/>
-          </classes>
-      </test>
+        <listener class-name="ua.com.epam.ListenerTest"/>
+    </listeners>
+    <test name="CRUD Authors Tests">
+        <classes>
+            <class name="ua.com.epam.CRUDAuthorTest"/>
+        </classes>
+    </test>
+    <test name="Filters Tests">
+        <classes>
+            <class name="ua.com.epam.FiltersAuthorTests"/>
+        </classes>
+    </test>
+    <test name="Negative Tests">
+        <classes>
+            <class name="ua.com.epam.NegativeCRUDTests"/>
+        </classes>
+    </test>
     <test name="Search Tests">
         <classes>
             <class name="ua.com.epam.SearchAuthorTests"/>

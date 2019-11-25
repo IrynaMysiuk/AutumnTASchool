@@ -3,7 +3,6 @@ package ua.com.epam;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
-import ua.com.epam.business.AuthorBO;
 import ua.com.epam.entity.Fault;
 import ua.com.epam.entity.Response;
 import ua.com.epam.entity.author.Author;
@@ -12,9 +11,7 @@ import ua.com.epam.entity.request.Request;
 import static org.apache.http.HttpStatus.*;
 
 public class NegativeCRUDTests extends BaseTest {
-    private Author expAuthor = testData.authors().getRandomOne();
-    private AuthorBO authorBO = new AuthorBO();
-    String expAuthorId = expAuthor.getAuthorId().toString();
+
 
     @Test(description = "Verify conflict for duplicated authors")
     public void checkDuplicatedAuthors() {

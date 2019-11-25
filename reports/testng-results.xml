@@ -2,132 +2,132 @@
 <testng-results skipped="0" failed="0" ignored="0" total="15" passed="15">
   <reporter-output>
   </reporter-output>
-  <suite name="TrainingBy Suite" duration-ms="2018" started-at="2019-11-24T18:11:21Z" finished-at="2019-11-24T18:11:23Z">
+  <suite name="TrainingBy Suite" duration-ms="3981" started-at="2019-11-25T14:40:51Z" finished-at="2019-11-25T14:40:55Z">
     <groups>
     </groups>
-    <test name="CRUD Authors Tests" duration-ms="1219" started-at="2019-11-24T18:11:21Z" finished-at="2019-11-24T18:11:23Z">
+    <test name="CRUD Authors Tests" duration-ms="2339" started-at="2019-11-25T14:40:51Z" finished-at="2019-11-25T14:40:53Z">
       <class name="ua.com.epam.CRUDAuthorTest">
-        <test-method status="PASS" signature="reinitialize()[pri:0, instance:ua.com.epam.CRUDAuthorTest@1c1042b8]" name="reinitialize" is-config="true" duration-ms="60" started-at="2019-11-24T18:11:21Z" finished-at="2019-11-24T18:11:22Z">
+        <test-method status="PASS" signature="reinitialize()[pri:0, instance:ua.com.epam.CRUDAuthorTest@7a663c87]" name="reinitialize" is-config="true" duration-ms="45" started-at="2019-11-25T14:40:51Z" finished-at="2019-11-25T14:40:51Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- reinitialize -->
-        <test-method status="PASS" signature="checkCreateSeveralAuthors()[pri:0, instance:ua.com.epam.CRUDAuthorTest@1c1042b8]" name="checkCreateSeveralAuthors" duration-ms="547" started-at="2019-11-24T18:11:22Z" description="check creating several authors" finished-at="2019-11-24T18:11:22Z">
+        <test-method status="PASS" signature="checkCreateSeveralAuthors()[pri:0, instance:ua.com.epam.CRUDAuthorTest@7a663c87]" name="checkCreateSeveralAuthors" duration-ms="1344" started-at="2019-11-25T14:40:51Z" description="check creating several authors" finished-at="2019-11-25T14:40:52Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkCreateSeveralAuthors -->
-        <test-method status="PASS" signature="cleanUp()[pri:0, instance:ua.com.epam.CRUDAuthorTest@1c1042b8]" name="cleanUp" is-config="true" duration-ms="318" started-at="2019-11-24T18:11:22Z" finished-at="2019-11-24T18:11:22Z">
+        <test-method status="PASS" signature="cleanUp()[pri:0, instance:ua.com.epam.CRUDAuthorTest@7a663c87]" name="cleanUp" is-config="true" duration-ms="524" started-at="2019-11-25T14:40:52Z" finished-at="2019-11-25T14:40:53Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- cleanUp -->
-        <test-method status="PASS" signature="checkDeleteAuthor()[pri:0, instance:ua.com.epam.CRUDAuthorTest@1c1042b8]" name="checkDeleteAuthor" duration-ms="51" started-at="2019-11-24T18:11:22Z" description="Check delete single author" finished-at="2019-11-24T18:11:23Z">
+        <test-method status="PASS" signature="checkDeleteAuthor()[pri:0, instance:ua.com.epam.CRUDAuthorTest@7a663c87]" name="checkDeleteAuthor" duration-ms="78" started-at="2019-11-25T14:40:53Z" description="Check delete single author" finished-at="2019-11-25T14:40:53Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkDeleteAuthor -->
-        <test-method status="PASS" signature="cleanUp()[pri:0, instance:ua.com.epam.CRUDAuthorTest@1c1042b8]" name="cleanUp" is-config="true" duration-ms="17" started-at="2019-11-24T18:11:23Z" finished-at="2019-11-24T18:11:23Z">
+        <test-method status="PASS" signature="cleanUp()[pri:0, instance:ua.com.epam.CRUDAuthorTest@7a663c87]" name="cleanUp" is-config="true" duration-ms="25" started-at="2019-11-25T14:40:53Z" finished-at="2019-11-25T14:40:53Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- cleanUp -->
-        <test-method status="PASS" signature="checkUpdateAuthor()[pri:0, instance:ua.com.epam.CRUDAuthorTest@1c1042b8]" name="checkUpdateAuthor" duration-ms="45" started-at="2019-11-24T18:11:23Z" description="Put single Author obj" finished-at="2019-11-24T18:11:23Z">
+        <test-method status="PASS" signature="checkUpdateAuthor()[pri:0, instance:ua.com.epam.CRUDAuthorTest@7a663c87]" name="checkUpdateAuthor" duration-ms="111" started-at="2019-11-25T14:40:53Z" description="Put single Author obj" finished-at="2019-11-25T14:40:53Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkUpdateAuthor -->
-        <test-method status="PASS" signature="cleanUp()[pri:0, instance:ua.com.epam.CRUDAuthorTest@1c1042b8]" name="cleanUp" is-config="true" duration-ms="33" started-at="2019-11-24T18:11:23Z" finished-at="2019-11-24T18:11:23Z">
+        <test-method status="PASS" signature="cleanUp()[pri:0, instance:ua.com.epam.CRUDAuthorTest@7a663c87]" name="cleanUp" is-config="true" duration-ms="47" started-at="2019-11-25T14:40:53Z" finished-at="2019-11-25T14:40:53Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- cleanUp -->
-        <test-method status="PASS" signature="postAuthor()[pri:0, instance:ua.com.epam.CRUDAuthorTest@1c1042b8]" name="postAuthor" duration-ms="28" started-at="2019-11-24T18:11:23Z" description="post single Author obj" finished-at="2019-11-24T18:11:23Z">
+        <test-method status="PASS" signature="postAuthor()[pri:0, instance:ua.com.epam.CRUDAuthorTest@7a663c87]" name="postAuthor" duration-ms="47" started-at="2019-11-25T14:40:53Z" description="post single Author obj" finished-at="2019-11-25T14:40:53Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- postAuthor -->
-        <test-method status="PASS" signature="cleanUp()[pri:0, instance:ua.com.epam.CRUDAuthorTest@1c1042b8]" name="cleanUp" is-config="true" duration-ms="30" started-at="2019-11-24T18:11:23Z" finished-at="2019-11-24T18:11:23Z">
+        <test-method status="PASS" signature="cleanUp()[pri:0, instance:ua.com.epam.CRUDAuthorTest@7a663c87]" name="cleanUp" is-config="true" duration-ms="59" started-at="2019-11-25T14:40:53Z" finished-at="2019-11-25T14:40:53Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- cleanUp -->
       </class> <!-- ua.com.epam.CRUDAuthorTest -->
     </test> <!-- CRUD Authors Tests -->
-    <test name="Filters Tests" duration-ms="442" started-at="2019-11-24T18:11:23Z" finished-at="2019-11-24T18:11:23Z">
+    <test name="Filters Tests" duration-ms="754" started-at="2019-11-25T14:40:53Z" finished-at="2019-11-25T14:40:54Z">
       <class name="ua.com.epam.FiltersAuthorTests">
-        <test-method status="PASS" signature="reinitialize()[pri:0, instance:ua.com.epam.FiltersAuthorTests@718cc8c2]" name="reinitialize" is-config="true" duration-ms="10" started-at="2019-11-24T18:11:23Z" finished-at="2019-11-24T18:11:23Z">
+        <test-method status="PASS" signature="reinitialize()[pri:0, instance:ua.com.epam.FiltersAuthorTests@534c0246]" name="reinitialize" is-config="true" duration-ms="14" started-at="2019-11-25T14:40:53Z" finished-at="2019-11-25T14:40:53Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- reinitialize -->
-        <test-method status="PASS" signature="prepareAuthors()[pri:0, instance:ua.com.epam.FiltersAuthorTests@718cc8c2]" name="prepareAuthors" is-config="true" duration-ms="134" started-at="2019-11-24T18:11:23Z" finished-at="2019-11-24T18:11:23Z">
+        <test-method status="PASS" signature="prepareAuthors()[pri:0, instance:ua.com.epam.FiltersAuthorTests@534c0246]" name="prepareAuthors" is-config="true" duration-ms="185" started-at="2019-11-25T14:40:53Z" finished-at="2019-11-25T14:40:54Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- prepareAuthors -->
-        <test-method status="PASS" signature="checkOrderTypeAsc()[pri:0, instance:ua.com.epam.FiltersAuthorTests@718cc8c2]" name="checkOrderTypeAsc" duration-ms="25" started-at="2019-11-24T18:11:23Z" description="Verify orderType for author" finished-at="2019-11-24T18:11:23Z">
+        <test-method status="PASS" signature="checkOrderTypeAsc()[pri:0, instance:ua.com.epam.FiltersAuthorTests@534c0246]" name="checkOrderTypeAsc" duration-ms="39" started-at="2019-11-25T14:40:54Z" description="Verify orderType for author" finished-at="2019-11-25T14:40:54Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkOrderTypeAsc -->
-        <test-method status="PASS" signature="checkOrderTypeDesc()[pri:0, instance:ua.com.epam.FiltersAuthorTests@718cc8c2]" name="checkOrderTypeDesc" duration-ms="21" started-at="2019-11-24T18:11:23Z" description="Verify orderType for author" finished-at="2019-11-24T18:11:23Z">
+        <test-method status="PASS" signature="checkOrderTypeDesc()[pri:0, instance:ua.com.epam.FiltersAuthorTests@534c0246]" name="checkOrderTypeDesc" duration-ms="34" started-at="2019-11-25T14:40:54Z" description="Verify orderType for author" finished-at="2019-11-25T14:40:54Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkOrderTypeDesc -->
-        <test-method status="PASS" signature="checkPageAuthors()[pri:0, instance:ua.com.epam.FiltersAuthorTests@718cc8c2]" name="checkPageAuthors" duration-ms="31" started-at="2019-11-24T18:11:23Z" description="Verify author page" finished-at="2019-11-24T18:11:23Z">
+        <test-method status="PASS" signature="checkPageAuthors()[pri:0, instance:ua.com.epam.FiltersAuthorTests@534c0246]" name="checkPageAuthors" duration-ms="46" started-at="2019-11-25T14:40:54Z" description="Verify author page" finished-at="2019-11-25T14:40:54Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkPageAuthors -->
-        <test-method status="PASS" signature="checkPaginationAuthors()[pri:0, instance:ua.com.epam.FiltersAuthorTests@718cc8c2]" name="checkPaginationAuthors" duration-ms="14" started-at="2019-11-24T18:11:23Z" description="Verify author pagination=&#039;false&#039; " finished-at="2019-11-24T18:11:23Z">
+        <test-method status="PASS" signature="checkPaginationAuthors()[pri:0, instance:ua.com.epam.FiltersAuthorTests@534c0246]" name="checkPaginationAuthors" duration-ms="49" started-at="2019-11-25T14:40:54Z" description="Verify author pagination=&#039;false&#039; " finished-at="2019-11-25T14:40:54Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkPaginationAuthors -->
-        <test-method status="PASS" signature="checkSizeAuthors()[pri:0, instance:ua.com.epam.FiltersAuthorTests@718cc8c2]" name="checkSizeAuthors" duration-ms="13" started-at="2019-11-24T18:11:23Z" description="Verify author size" finished-at="2019-11-24T18:11:23Z">
+        <test-method status="PASS" signature="checkSizeAuthors()[pri:0, instance:ua.com.epam.FiltersAuthorTests@534c0246]" name="checkSizeAuthors" duration-ms="51" started-at="2019-11-25T14:40:54Z" description="Verify author size" finished-at="2019-11-25T14:40:54Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkSizeAuthors -->
-        <test-method status="PASS" signature="checkSortBy()[pri:0, instance:ua.com.epam.FiltersAuthorTests@718cc8c2]" name="checkSortBy" duration-ms="19" started-at="2019-11-24T18:11:23Z" description="Verify sortBy for author" finished-at="2019-11-24T18:11:23Z">
+        <test-method status="PASS" signature="checkSortBy()[pri:0, instance:ua.com.epam.FiltersAuthorTests@534c0246]" name="checkSortBy" duration-ms="31" started-at="2019-11-25T14:40:54Z" description="Verify sortBy for author" finished-at="2019-11-25T14:40:54Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkSortBy -->
-        <test-method status="PASS" signature="cleanUp()[pri:0, instance:ua.com.epam.FiltersAuthorTests@718cc8c2]" name="cleanUp" is-config="true" duration-ms="169" started-at="2019-11-24T18:11:23Z" finished-at="2019-11-24T18:11:23Z">
+        <test-method status="PASS" signature="cleanUp()[pri:0, instance:ua.com.epam.FiltersAuthorTests@534c0246]" name="cleanUp" is-config="true" duration-ms="296" started-at="2019-11-25T14:40:54Z" finished-at="2019-11-25T14:40:54Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- cleanUp -->
       </class> <!-- ua.com.epam.FiltersAuthorTests -->
     </test> <!-- Filters Tests -->
-    <test name="Negative Tests" duration-ms="144" started-at="2019-11-24T18:11:23Z" finished-at="2019-11-24T18:11:23Z">
+    <test name="Negative Tests" duration-ms="266" started-at="2019-11-25T14:40:54Z" finished-at="2019-11-25T14:40:54Z">
       <class name="ua.com.epam.NegativeCRUDTests">
-        <test-method status="PASS" signature="reinitialize()[pri:0, instance:ua.com.epam.NegativeCRUDTests@25245e5a]" name="reinitialize" is-config="true" duration-ms="4" started-at="2019-11-24T18:11:23Z" finished-at="2019-11-24T18:11:23Z">
+        <test-method status="PASS" signature="reinitialize()[pri:0, instance:ua.com.epam.NegativeCRUDTests@69d65931]" name="reinitialize" is-config="true" duration-ms="5" started-at="2019-11-25T14:40:54Z" finished-at="2019-11-25T14:40:54Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- reinitialize -->
-        <test-method status="PASS" signature="checkDuplicatedAuthors()[pri:0, instance:ua.com.epam.NegativeCRUDTests@25245e5a]" name="checkDuplicatedAuthors" duration-ms="25" started-at="2019-11-24T18:11:23Z" description="Verify conflict for duplicated authors" finished-at="2019-11-24T18:11:23Z">
+        <test-method status="PASS" signature="checkDuplicatedAuthors()[pri:0, instance:ua.com.epam.NegativeCRUDTests@69d65931]" name="checkDuplicatedAuthors" duration-ms="59" started-at="2019-11-25T14:40:54Z" description="Verify conflict for duplicated authors" finished-at="2019-11-25T14:40:54Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkDuplicatedAuthors -->
-        <test-method status="PASS" signature="cleanUp()[pri:0, instance:ua.com.epam.NegativeCRUDTests@25245e5a]" name="cleanUp" is-config="true" duration-ms="32" started-at="2019-11-24T18:11:23Z" finished-at="2019-11-24T18:11:23Z">
+        <test-method status="PASS" signature="cleanUp()[pri:0, instance:ua.com.epam.NegativeCRUDTests@69d65931]" name="cleanUp" is-config="true" duration-ms="50" started-at="2019-11-25T14:40:54Z" finished-at="2019-11-25T14:40:54Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- cleanUp -->
-        <test-method status="PASS" signature="checkUnExistedAuthors()[pri:0, instance:ua.com.epam.NegativeCRUDTests@25245e5a]" name="checkUnExistedAuthors" duration-ms="44" started-at="2019-11-24T18:11:23Z" description="Verify unknown authors" finished-at="2019-11-24T18:11:23Z">
+        <test-method status="PASS" signature="checkUnExistedAuthors()[pri:0, instance:ua.com.epam.NegativeCRUDTests@69d65931]" name="checkUnExistedAuthors" duration-ms="79" started-at="2019-11-25T14:40:54Z" description="Verify unknown authors" finished-at="2019-11-25T14:40:54Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkUnExistedAuthors -->
-        <test-method status="PASS" signature="cleanUp()[pri:0, instance:ua.com.epam.NegativeCRUDTests@25245e5a]" name="cleanUp" is-config="true" duration-ms="16" started-at="2019-11-24T18:11:23Z" finished-at="2019-11-24T18:11:23Z">
+        <test-method status="PASS" signature="cleanUp()[pri:0, instance:ua.com.epam.NegativeCRUDTests@69d65931]" name="cleanUp" is-config="true" duration-ms="23" started-at="2019-11-25T14:40:54Z" finished-at="2019-11-25T14:40:54Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- cleanUp -->
-        <test-method status="PASS" signature="checkUnknownURL()[pri:0, instance:ua.com.epam.NegativeCRUDTests@25245e5a]" name="checkUnknownURL" duration-ms="4" started-at="2019-11-24T18:11:23Z" description="Verify method not allowed" finished-at="2019-11-24T18:11:23Z">
+        <test-method status="PASS" signature="checkUnknownURL()[pri:0, instance:ua.com.epam.NegativeCRUDTests@69d65931]" name="checkUnknownURL" duration-ms="14" started-at="2019-11-25T14:40:54Z" description="Verify method not allowed" finished-at="2019-11-25T14:40:54Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkUnknownURL -->
-        <test-method status="PASS" signature="cleanUp()[pri:0, instance:ua.com.epam.NegativeCRUDTests@25245e5a]" name="cleanUp" is-config="true" duration-ms="14" started-at="2019-11-24T18:11:23Z" finished-at="2019-11-24T18:11:23Z">
+        <test-method status="PASS" signature="cleanUp()[pri:0, instance:ua.com.epam.NegativeCRUDTests@69d65931]" name="cleanUp" is-config="true" duration-ms="29" started-at="2019-11-25T14:40:54Z" finished-at="2019-11-25T14:40:54Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- cleanUp -->
       </class> <!-- ua.com.epam.NegativeCRUDTests -->
     </test> <!-- Negative Tests -->
-    <test name="Search Tests" duration-ms="105" started-at="2019-11-24T18:11:23Z" finished-at="2019-11-24T18:11:23Z">
+    <test name="Search Tests" duration-ms="546" started-at="2019-11-25T14:40:54Z" finished-at="2019-11-25T14:40:55Z">
       <class name="ua.com.epam.SearchAuthorTests">
-        <test-method status="PASS" signature="reinitialize()[pri:0, instance:ua.com.epam.SearchAuthorTests@3a4e9809]" name="reinitialize" is-config="true" duration-ms="6" started-at="2019-11-24T18:11:23Z" finished-at="2019-11-24T18:11:23Z">
+        <test-method status="PASS" signature="reinitialize()[pri:0, instance:ua.com.epam.SearchAuthorTests@461726ff]" name="reinitialize" is-config="true" duration-ms="5" started-at="2019-11-25T14:40:54Z" finished-at="2019-11-25T14:40:54Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- reinitialize -->
-        <test-method status="PASS" signature="checkCorrectSearch()[pri:0, instance:ua.com.epam.SearchAuthorTests@3a4e9809]" name="checkCorrectSearch" duration-ms="82" started-at="2019-11-24T18:11:23Z" description="Verify correct search" finished-at="2019-11-24T18:11:23Z">
+        <test-method status="PASS" signature="checkCorrectSearch()[pri:0, instance:ua.com.epam.SearchAuthorTests@461726ff]" name="checkCorrectSearch" duration-ms="512" started-at="2019-11-25T14:40:54Z" description="Verify correct search" finished-at="2019-11-25T14:40:55Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkCorrectSearch -->
-        <test-method status="PASS" signature="checkIncorrectSearch()[pri:0, instance:ua.com.epam.SearchAuthorTests@3a4e9809]" name="checkIncorrectSearch" duration-ms="16" started-at="2019-11-24T18:11:23Z" description="Verify incorrect search" finished-at="2019-11-24T18:11:23Z">
+        <test-method status="PASS" signature="checkIncorrectSearch()[pri:0, instance:ua.com.epam.SearchAuthorTests@461726ff]" name="checkIncorrectSearch" duration-ms="26" started-at="2019-11-25T14:40:55Z" description="Verify incorrect search" finished-at="2019-11-25T14:40:55Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkIncorrectSearch -->

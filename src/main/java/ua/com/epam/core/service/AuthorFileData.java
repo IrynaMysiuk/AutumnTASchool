@@ -1,4 +1,4 @@
-package ua.com.epam.utils.data.service;
+package ua.com.epam.core.service;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

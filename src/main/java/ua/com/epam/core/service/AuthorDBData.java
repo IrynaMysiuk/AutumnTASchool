@@ -1,4 +1,4 @@
-package ua.com.epam.utils.data.service;
+package ua.com.epam.core.service;
 
 import org.apache.log4j.Logger;
 import ua.com.epam.config.DataProp;

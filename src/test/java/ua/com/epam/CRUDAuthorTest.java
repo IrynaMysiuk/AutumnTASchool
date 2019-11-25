@@ -3,7 +3,6 @@ package ua.com.epam;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
-import ua.com.epam.business.AuthorBO;
 import ua.com.epam.entity.Response;
 import ua.com.epam.entity.author.Author;
 import ua.com.epam.entity.author.nested.Name;
@@ -12,9 +11,7 @@ import static org.apache.http.HttpStatus.*;
 
 
 public class CRUDAuthorTest extends BaseTest {
-    private Author expAuthor = testData.authors().getRandomOne();
 
-    private AuthorBO authorBO = new AuthorBO();
 
     @Test(description = "post single Author obj")
     public void postAuthor() {
@@ -70,10 +67,10 @@ public class CRUDAuthorTest extends BaseTest {
     @Test(description = "check creating several authors")
     public void checkCreateSeveralAuthors() {
         for (Author author : authorList) {
-            AuthorBO newAuthorBO = new AuthorBO();
-            Response createdAuthor = newAuthorBO.createAuthor(author);
+
+            Response createdAuthor = authorBO.createAuthor(author);
             Assert.assertEquals(createdAuthor.getStatusCode(), SC_CREATED, "Incorrect status code!");
-            Author authorResponse = newAuthorBO.getAuthor(author.getAuthorId().toString());
+            Author authorResponse = authorBO.getAuthor(author.getAuthorId().toString());
             Assert.assertEquals(authorResponse.getAuthorId(), author.getAuthorId(), "AuthorId is incorrect!");
         }
     }

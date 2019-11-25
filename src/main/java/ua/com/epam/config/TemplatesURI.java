@@ -12,7 +12,7 @@ public enum TemplatesURI {
     private String URI;
     private String id;
 
-    private TemplatesURI(String URI) {
+    TemplatesURI(String URI) {
         this.URI = URI;
     }
 
