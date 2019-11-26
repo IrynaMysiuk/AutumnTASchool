@@ -2,79 +2,87 @@ package ua.com.epam.entity.request;
 
 import ua.com.epam.config.TemplatesURI;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Request {
     public static final String DELIMITER = "&";
     public static final String FIRST_DELIMITER = "?";
-    private StringBuilder request;
+    private Map<String, String> params;
     private String templateUri;
 
 
     public Request() {
-        request = new StringBuilder();
+        params = new HashMap();
     }
 
 
     public Request setOrderType(String orderType) {
-        request.append("orderType=").append(orderType).append(DELIMITER);
+        params.put("orderType", orderType);
         return this;
     }
 
     public Request setPage(String page) {
-        request.append("page=").append(page).append(DELIMITER);
+        params.put("page", page);
         return this;
     }
 
     public Request setPagination(String pagination) {
-        request.append("pagination=").append(pagination).append(DELIMITER);
+        params.put("pagination", pagination);
         return this;
     }
 
     public Request setSize(String size) {
-        request.append("size=").append(size).append(DELIMITER);
+        params.put("size", size);
         return this;
     }
 
     public Request setSortBy(String sortBy) {
-        request.append("sortBy=").append(sortBy).append(DELIMITER);
+        params.put("sortBy", sortBy);
         return this;
     }
 
     public Request setPage(Integer page) {
-        request.append("page=").append(page).append(DELIMITER);
+        params.put("page", page.toString());
         return this;
     }
 
     public Request setPagination(Boolean pagination) {
-        request.append("pagination=").append(pagination).append(DELIMITER);
+        params.put("pagination", pagination.toString());
         return this;
     }
 
     public Request setSize(Integer size) {
-        request.append("size=").append(size).append(DELIMITER);
+        params.put("size", size.toString());
+        return this;
+    }
+
+    public Request setQuery(String query) {
+        params.put("query", query);
         return this;
     }
 
     public Request setTemplateURL(TemplatesURI uri) {
-        this.templateUri = uri.getURI().concat(FIRST_DELIMITER);
+        this.templateUri = uri.getURI();
         return this;
     }
 
     public Request setTemplateURL(String uri) {
-        this.templateUri = uri.concat(FIRST_DELIMITER);
+        this.templateUri = uri;
         return this;
     }
 
     public String getTemplateURL() {
-        return templateUri.replace(FIRST_DELIMITER, "");
+        return templateUri;
     }
 
-    public Request setQuery(String query) {
-        this.request.append("query=").append(query).append(DELIMITER);
-        return this;
-    }
 
     @Override
     public String toString() {
-        return templateUri + request.toString();
+        StringBuilder request = new StringBuilder();
+        for (Map.Entry param : params.entrySet())
+            request.append(param.getKey()).append("=").append(param.getValue()).append(DELIMITER);
+        return String.format("%s%s%s", templateUri, FIRST_DELIMITER, request.toString())
+                .replaceFirst("[?&]$", "");
     }
 }
