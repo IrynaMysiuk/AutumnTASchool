@@ -1,11 +1,11 @@
 package ua.com.epam;
 
-import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import ua.com.epam.entity.Response;
 import ua.com.epam.entity.author.Author;
 import ua.com.epam.entity.author.nested.Name;
+import ua.com.epam.validation.Validation;
 
 import static org.apache.http.HttpStatus.*;
 
@@ -15,63 +15,46 @@ public class CRUDAuthorTest extends BaseTest {
 
     @Test(description = "post single Author obj")
     public void postAuthor() {
-        Response createdAuthor = authorBO.createAuthor(expAuthor);
-        Assert.assertEquals(createdAuthor.getStatusCode(), SC_CREATED,
-                "Incorrect status code for creating author!");
-        Assert.assertEquals(expAuthor, authorBO.getActualAuthor(),
-                "Author is not created for creating author");
 
-        Author author = authorBO.getAuthor(expAuthor.getAuthorId().toString());
-        Assert.assertEquals(author.getAuthorId(), expAuthor.getAuthorId(),
-                "AuthorId is incorrect for creating author!");
+        Response createdAuthor = authorService.createAuthor(expAuthor);
+        validation.validateCreateAuthor(SC_CREATED, expAuthor, createdAuthor);
+
+        Author author = authorService.getAuthor(expAuthor.getAuthorId().toString());
+        validation.validateAuthorId(expAuthor, author);
+
     }
 
     @Test(description = "Put single Author obj")
     public void checkUpdateAuthor() {
-        Response createdAuthor = authorBO.createAuthor(expAuthor);
-        Assert.assertEquals(createdAuthor.getStatusCode(), SC_CREATED,
-                "Incorrect status code for creating author!");
-        Assert.assertEquals(expAuthor, authorBO.getActualAuthor(),
-                "Author is not created for creating author");
+        Response createdAuthor = authorService.createAuthor(expAuthor);
+        validation.validateCreateAuthor(SC_CREATED, expAuthor, createdAuthor);
 
         expAuthor.setAuthorName(new Name("Ivan", "Franko"));
-        Response updatedAuthor = authorBO.updateAuthor(expAuthor);
-        Assert.assertEquals(updatedAuthor.getStatusCode(), SC_OK,
-                "Incorrect status code for updating author!");
-        Assert.assertEquals(authorBO.getActualAuthor(), expAuthor,
-                "The author is not the same after updating!");
-
-        Author author = authorBO.getAuthor(expAuthor.getAuthorId().toString());
-        Assert.assertEquals(author.getAuthorName(), expAuthor.getAuthorName(),
-                "Author id is incorrect after updating!");
+        Response updatedAuthor = authorService.updateAuthor(expAuthor);
+        validation.validateUpdateAuthor(SC_OK, expAuthor, updatedAuthor);
+        Author author = authorService.getAuthor(expAuthor.getAuthorId().toString());
+        validation.validateAuthorName(expAuthor, author);
     }
 
     @Test(description = "Check delete single author")
     public void checkDeleteAuthor() {
         String expAuthorId = expAuthor.getAuthorId().toString();
-        Response createdAuthor = authorBO.createAuthor(expAuthor);
-        Assert.assertEquals(createdAuthor.getStatusCode(), SC_CREATED,
-                "Incorrect status code for creating!");
-        Assert.assertEquals(expAuthor, authorBO.getActualAuthor(),
-                "Author is not created!");
+        Response createdAuthor = authorService.createAuthor(expAuthor);
+        validation.validateCreateAuthor(SC_CREATED, expAuthor, createdAuthor);
+        Author author = authorService.getAuthor(expAuthorId);
 
-        Author author = authorBO.getAuthor(expAuthorId);
-        Assert.assertEquals(author.getAuthorId(), expAuthor.getAuthorId(),
-                "AuthorId is incorrect for getting!");
-
-        Response deletedAuthor = authorBO.deleteAuthor(expAuthorId);
-        Assert.assertEquals(deletedAuthor.getStatusCode(), SC_NO_CONTENT,
-                "The status code is incorrect after deleting");
+        validation.validateAuthorId(expAuthor, author);
+        Response deletedAuthor = authorService.deleteAuthor(expAuthorId);
+        validation.validateDeleteAuthor(SC_NO_CONTENT, deletedAuthor);
     }
 
     @Test(description = "check creating several authors")
     public void checkCreateSeveralAuthors() {
-        for (Author author : authorList) {
-
-            Response createdAuthor = authorBO.createAuthor(author);
-            Assert.assertEquals(createdAuthor.getStatusCode(), SC_CREATED, "Incorrect status code!");
-            Author authorResponse = authorBO.getAuthor(author.getAuthorId().toString());
-            Assert.assertEquals(authorResponse.getAuthorId(), author.getAuthorId(), "AuthorId is incorrect!");
+        for (Author expAuthor : expAuthorList) {
+            Response createdAuthor = authorService.createAuthor(expAuthor);
+            validation.validateCreateAuthor(SC_CREATED, expAuthor, createdAuthor);
+            Author authorResponse = authorService.getAuthor(expAuthor.getAuthorId().toString());
+            validation.validateAuthorId(expAuthor, authorResponse);
         }
     }
 

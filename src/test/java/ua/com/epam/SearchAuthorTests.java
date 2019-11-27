@@ -19,12 +19,12 @@ public class SearchAuthorTests extends BaseTest {
             Request request = new Request()
                     .setTemplateURL(TemplatesURI.SEARCH_FOR_EXISTED_AUTHORS_ARR)
                     .setQuery(expQuery);
-            List<Author> authors = authorBO.getAuthors(request);
+            List<Author> authors = authorService.getAuthors(request);
             List<String> firstNames = authors.stream()
                     .map(Author::getAuthorName)
                     .map(Name::getFirst)
                     .collect(Collectors.toList());
-            Assert.assertFalse(firstNames.contains(expQuery), "FirstName contains incorrect query! ");
+            validation.validationQueryFirstName(firstNames,expQuery);
         }
     }
 
@@ -33,9 +33,8 @@ public class SearchAuthorTests extends BaseTest {
         Request request = new Request()
                 .setTemplateURL(TemplatesURI.SEARCH_FOR_EXISTED_AUTHORS_ARR)
                 .setQuery("Aab");
-        List<Author> authors = authorBO.getAuthors(request);
-        Assert.assertEquals(authors.size(), 0, "FirstName contains incorrect query! ");
-
+        List<Author> authors = authorService.getAuthors(request);
+        validation.validationIncorrectQuery(authors);
     }
 
 }

@@ -1,6 +1,5 @@
 package ua.com.epam;
 
-import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -22,9 +21,9 @@ public class FiltersAuthorTests extends BaseTest {
 
     @BeforeClass
     public void prepareAuthors() {
-        for (Author author : authorList) {
-            Response createdAuthor = authorBO.createAuthor(author);
-            Assert.assertEquals(createdAuthor.getStatusCode(), SC_CREATED, "Authors is not add!");
+        for (Author author : expAuthorList) {
+            Response createdAuthor = authorService.createAuthor(author);
+            validation.validateCreateAuthor(SC_CREATED, author, createdAuthor);
         }
     }
 
@@ -33,25 +32,24 @@ public class FiltersAuthorTests extends BaseTest {
         Request request = new Request()
                 .setTemplateURL(TemplatesURI.GET_ALL_AUTHORS_ARR)
                 .setSize(TEST_EXPECTED_SIZE);
-        List<Author> authors = authorBO.getAuthors(request);
-        Assert.assertEquals(authors.size(), TEST_EXPECTED_SIZE, "The size is incorrect");
+        List<Author> authors = authorService.getAuthors(request);
+        validation.validateAuthorSize(authors.size(), TEST_EXPECTED_SIZE);
     }
 
     @Test(description = "Verify author page")
     public void checkPageAuthors() {
         int authorsSum = 0;
-        for (int page = 1; page <= Math.round(authorList.size() / TEST_EXPECTED_SIZE); page++) {
+        for (int page = 1; page <= Math.round(expAuthorList.size() / TEST_EXPECTED_SIZE); page++) {
             Request request = new Request()
                     .setTemplateURL(TemplatesURI.GET_ALL_AUTHORS_ARR)
                     .setPage(page)
                     .setSize(TEST_EXPECTED_SIZE);
-            List<Author> authors = authorBO.getAuthors(request);
+            List<Author> authors = authorService.getAuthors(request);
 
-            Assert.assertTrue(authors.size() <= TEST_EXPECTED_SIZE,
-                    "The size is incorrect on page " + page);
+            validation.validateAuthorSizeOnPage(authors.size(), TEST_EXPECTED_SIZE, page);
             authorsSum += authors.size();
         }
-        Assert.assertEquals(authorsSum, authorList.size(), "The sum of authors is not correct");
+        validation.validateAuthorSize(authorsSum, expAuthorList.size());
     }
 
     @Test(description = "Verify orderType for author")
@@ -60,7 +58,7 @@ public class FiltersAuthorTests extends BaseTest {
                 .setTemplateURL(TemplatesURI.GET_ALL_AUTHORS_ARR)
                 .setSortBy(AUTHOR_FIRST_NAME)
                 .setOrderType(ASCENDING);
-        List<Author> authors = authorBO.getAuthors(request);
+        List<Author> authors = authorService.getAuthors(request);
         List<String> actFirstNames = authors.stream()
                 .map(Author::getAuthorName)
                 .map(Name::getFirst)
@@ -70,8 +68,7 @@ public class FiltersAuthorTests extends BaseTest {
                 .map(Author::getAuthorName)
                 .map(Name::getFirst)
                 .collect(Collectors.toList());
-        Assert.assertEquals(actFirstNames, expectedFirstNames,
-                " Author list is not sorted  by first name for asc");
+        validation.validateSortingByFirstName(actFirstNames, expectedFirstNames, ASCENDING);
     }
 
     @Test(description = "Verify orderType for author")
@@ -80,7 +77,7 @@ public class FiltersAuthorTests extends BaseTest {
                 .setTemplateURL(TemplatesURI.GET_ALL_AUTHORS_ARR)
                 .setSortBy(AUTHOR_FIRST_NAME)
                 .setOrderType(DESCENDING);
-        List<Author> authors = authorBO.getAuthors(request);
+        List<Author> authors = authorService.getAuthors(request);
         List<String> firstNames = authors.stream()
                 .map(Author::getAuthorName)
                 .map(Name::getFirst)
@@ -90,8 +87,7 @@ public class FiltersAuthorTests extends BaseTest {
                 .map(Author::getAuthorName)
                 .map(Name::getFirst)
                 .collect(Collectors.toList());
-        Assert.assertEquals(firstNames, expectedFirstNames,
-                " Author list is not sorted  by first name for desc");
+        validation.validateSortingByFirstName(firstNames, expectedFirstNames, DESCENDING);
     }
 
     @Test(description = "Verify sortBy for author")
@@ -99,13 +95,12 @@ public class FiltersAuthorTests extends BaseTest {
         Request request = new Request()
                 .setTemplateURL(TemplatesURI.GET_ALL_AUTHORS_ARR)
                 .setSortBy("authorName.second");
-        List<Author> authors = authorBO.getAuthors(request);
+        List<Author> authors = authorService.getAuthors(request);
         List<String> secondNames = authors.stream()
                 .map(Author::getAuthorName)
                 .map(Name::getSecond)
                 .collect(Collectors.toList());
-        Assert.assertEquals(secondNames, secondNames.stream().sorted().collect(Collectors.toList()),
-                " Author list is not sorted by second name");
+        validation.validationSortingBySecondName(secondNames);
     }
 
     @Test(description = "Verify author pagination='false' ")
@@ -114,9 +109,9 @@ public class FiltersAuthorTests extends BaseTest {
                 .setTemplateURL(TemplatesURI.GET_ALL_AUTHORS_ARR)
                 .setSize(5)
                 .setPagination(false);
-        List<Author> authors = authorBO.getAuthors(request);
-        Assert.assertTrue(authors.size() > 5, "The size is incorrect");
-        Assert.assertEquals(authors.size(), authorList.size(), "The list is not the same");
+        List<Author> authors = authorService.getAuthors(request);
+        validation.validateAuthorExpectedSize(authors.size());
+        validation.validateAuthorSize(authors.size(), expAuthorList.size());
     }
 
     @AfterClass
